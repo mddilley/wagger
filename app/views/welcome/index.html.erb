@@ -1,10 +1,11 @@
-<div style="text-align:center;" class="container">
-  <h1>Welcome to Wagger.</h1>
-  <h4>Wag better - <u>together</u>.</h4><br>
-
-  <h5><%= link_to "Sign Up", new_user_path %></h5>
-
-  <p>or</p>
-
-  <h5><%= link_to "Log In", login_path %></h5>
+<div class="container text-center">
+  <div class="jumbotron">
+    <h1 class="display-2">Welcome to Wagger.</h1>
+    <h2>Wag better - <u>together</u>.</h2>
+    <p class="lead"><br>
+      <a class="btn btn-primary btn-lg" href="<%= new_user_path %>" role="button">Sign Up</a>
+      <span>&nbsp&nbsp&nbspor&nbsp&nbsp&nbsp</span>
+      <a class="btn btn-primary btn-lg" href="<%= login_path %>" role="button">Log In</a>
+    </p>
+  </div>
 </div>

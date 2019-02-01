@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ body, html {
+   height: 100%;
+ }
+
+ .bg {
+   background-image: url(/images/bartonsprings.jpg);
+   height: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+.jumbotron {
+    background: rgba(204, 204, 204, 0.5);
+}

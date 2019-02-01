@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
+  before_action :authorized?, only: [:edit, :update, :show]
 
   def new
     @user = User.new
@@ -43,6 +44,10 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.find(params[:id])
+    end
+
+    def authorized?
+      redirect_to user_path(current_user) unless find_user == current_user
     end
 
 end

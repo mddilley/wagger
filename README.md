@@ -1,1 +1,3 @@
-# doggo-date
+# DoggoDate
+
+Bring your dogs together time and time again through this app.

@@ -19,15 +19,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    find_user
+    find_user_by_id
   end
 
   def edit
-    find_user
+    find_user_by_id
   end
 
   def update
-    find_user
+    find_user_by_id
     @user.update(user_params)
     redirect_to user_path(@user)
   end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       redirect_to root_path unless session[:id]
     end
 
-    def find_user
+    def find_user_by_id
       @user = User.find(params[:id])
     end
 

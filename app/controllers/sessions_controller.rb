@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if find_user
-      @user.authenticate(params[:password])
+    find_user
+    if @user.authenticate(params[:password])
       login(@user)
       redirect_to user_path(@user)
     else

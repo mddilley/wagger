@@ -1,0 +1,13 @@
+<div class="container text-center text-light align-middle">
+  <h3>Log in to start planning your dog dates!</h3>
+
+  <%= form_tag(sessions_path) do %>
+    <%= label_tag "Email" %><br>
+    <%= text_field_tag "email"%><br>
+
+    <%= label_tag "Password" %><br>
+    <%= password_field_tag "password" %><br><br>
+
+    <%= submit_tag "Log In" %>
+  <% end %>
+</div>

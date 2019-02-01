@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dogs
   root 'welcome#index'
   resources :users, only: [:new, :create, :show, :update, :edit]
   get '/signup' => 'sessions#new'

@@ -1,1 +1,21 @@
-<%= @user.name %>
+
+<div class="text-left text-light">
+  <h2><u>Your profile</u></h2>
+
+  Name: <br>
+  <%= @user.name %><br>
+
+  Email: <br>
+  <%= @user.email %><br>
+
+  City: <br>
+  <%= @user.city %><br>
+
+  State: <br>
+  <%= @user.state %><br>
+
+  Hobbies: <br>
+  <%= @user.hobbies %><br>
+
+  <a class="btn btn-primary btn-lg" href="<%= edit_user_path(@user) %>" role="button">Update Profile</a>
+</div>

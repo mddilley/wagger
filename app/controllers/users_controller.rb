@@ -21,8 +21,14 @@ class UsersController < ApplicationController
     find_user
   end
 
+  def edit
+    find_user
+  end
+
   def update
     find_user
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   private

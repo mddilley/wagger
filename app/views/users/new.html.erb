@@ -1,4 +1,4 @@
-<h3>Sign up to start planning some dog dates!</h3>
+<h3>Sign up to start planning your dog dates!</h3>
 
 <%= form_for @user do |f| %>
   <%= f.label :name %><br>
@@ -8,6 +8,6 @@
   <%= f.label :password %><br>
   <%= f.password_field :password %><br>
   <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %><br><br>
   <%= f.submit "Sign Up" %>
 <% end %>

@@ -5,6 +5,14 @@
     <%= dog.label :name %><br>
     <%= dog.text_field :name %><br>
 
+    <%= dog.label :age %><br>
+    <%= dog.number_field :age %><br>
+
+
+    <%= dog.label :breed %><br>
+    <%= dog.select :breed, options_for_select(breeds_for_select) %><br>
+
+
     <%= dog.label :sex %><br>
     <%= dog.label "Male" %>
     <%= dog.radio_button "sex", "Male" %>
@@ -14,3 +22,11 @@
     <%= dog.submit "Add Dog" %>
   <% end %>
 </div>
+
+
+t.integer "age"
+t.string "breed"
+t.integer "weight"
+t.boolean "fixed"
+t.integer "friendly_rating"
+t.integer "aggressive_rating"

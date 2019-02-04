@@ -4251,3 +4251,161 @@ Migrating to AddUserIdToDogs (20190203200351)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 6], ["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to CreatePlayDates (20190204154147)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190204154147_create_play_dates.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "play_dates" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "location" varchar, "date" date, "time" time, "dog_limit" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190204154147_create_play_dates.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190204154147"]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to AddPlayDateIdToDogs (20190204154355)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "dogs" ADD "playdate_id" integer[0m
+  ↳ db/migrate/20190204154355_add_play_date_id_to_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190204154355"]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["password_digest", "$2a$10$OwqJQQuN0ZfMtC5/lPwAk.QyrIy.7awAyfhDjH4wN1ynS6Q/SyPde"], ["name", "Mike"], ["created_at", "2019-02-04 15:47:04.302240"], ["updated_at", "2019-02-04 15:47:04.302240"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["password_digest", "$2a$10$voULnb/KWJXF1zrjnmuKjups8WkLjbxnmcS5BfSdSmL3gzkBtecsC"], ["name", "Mike"], ["created_at", "2019-02-04 15:52:07.290913"], ["updated_at", "2019-02-04 15:52:07.290913"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "age", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["age", 10], ["created_at", "2019-02-04 15:53:22.201997"], ["updated_at", "2019-02-04 15:53:22.201997"], ["user_id", 8]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayDate Create (0.7ms)[0m  [1m[32mINSERT INTO "play_dates" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "Mueller Lake Park"], ["created_at", "2019-02-04 15:54:01.287778"], ["updated_at", "2019-02-04 15:54:01.287778"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["password_digest", "$2a$10$Bjul3n2w8k/fN6/r329Xau9UZhCtZPLvBvX0cI7R31ZIQx6GOBLWK"], ["name", "Mike"], ["created_at", "2019-02-04 15:57:37.461044"], ["updated_at", "2019-02-04 15:57:37.461044"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "age", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["age", 10], ["created_at", "2019-02-04 15:58:07.568369"], ["updated_at", "2019-02-04 15:58:07.568369"], ["user_id", 9]]
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 9], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayDate Create (0.4ms)[0m  [1m[32mINSERT INTO "play_dates" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "Mueller Lake Park"], ["created_at", "2019-02-04 15:58:41.122192"], ["updated_at", "2019-02-04 15:58:41.122192"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to AddPlayDateIdToDogs (20190204154355)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adogs" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "breed" varchar DEFAULT NULL, "weight" integer DEFAULT NULL, "fixed" boolean DEFAULT NULL, "sex" varchar DEFAULT NULL, "friendly_rating" integer DEFAULT NULL, "aggressive_rating" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, "playdate_id" integer DEFAULT NULL)[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "adogs" ("id","name","age","breed","weight","fixed","sex","friendly_rating","aggressive_rating","created_at","updated_at","user_id","playdate_id")
+                     SELECT "id","name","age","breed","weight","fixed","sex","friendly_rating","aggressive_rating","created_at","updated_at","user_id","playdate_id" FROM "dogs"[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "dogs"[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "breed" varchar DEFAULT NULL, "weight" integer DEFAULT NULL, "fixed" boolean DEFAULT NULL, "sex" varchar DEFAULT NULL, "friendly_rating" integer DEFAULT NULL, "aggressive_rating" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL)[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "dogs" ("id","name","age","breed","weight","fixed","sex","friendly_rating","aggressive_rating","created_at","updated_at","user_id")
+                     SELECT "id","name","age","breed","weight","fixed","sex","friendly_rating","aggressive_rating","created_at","updated_at","user_id" FROM "adogs"[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adogs"[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190204154355"]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to AddPlayDateIdToDogs (20190204154355)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "dogs" ADD "play_date_id" integer[0m
+  ↳ db/migrate/20190204154355_add_play_date_id_to_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190204154355"]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["password_digest", "$2a$10$/8qCw5N0igo7mzaJPtBj6epoke9VrXNZR/8NYxphR4DBHm4UVK/cK"], ["name", "Mike"], ["created_at", "2019-02-04 15:59:47.989494"], ["updated_at", "2019-02-04 15:59:47.989494"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "age", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["age", 10], ["created_at", "2019-02-04 16:00:26.350922"], ["updated_at", "2019-02-04 16:00:26.350922"], ["user_id", 10]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayDate Create (0.5ms)[0m  [1m[32mINSERT INTO "play_dates" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "Mueller Lake Park"], ["created_at", "2019-02-04 16:00:50.443654"], ["updated_at", "2019-02-04 16:00:50.443654"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 3], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["password_digest", "$2a$10$C9HU/ubkuBgw6czg/hxbX./xsmtulrCX5yIsbAZuBulOFXXO2fJCe"], ["name", "Mike"], ["created_at", "2019-02-04 16:06:38.050120"], ["updated_at", "2019-02-04 16:06:38.050120"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDog Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "age", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["age", 10], ["created_at", "2019-02-04 16:07:00.033222"], ["updated_at", "2019-02-04 16:07:00.033222"], ["user_id", 11]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayDate Create (0.7ms)[0m  [1m[32mINSERT INTO "play_dates" ("location", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["location", "Mueller Lake Park"], ["created_at", "2019-02-04 16:07:19.119524"], ["updated_at", "2019-02-04 16:07:19.119524"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" INNER JOIN "dogs" ON "play_dates"."id" = "dogs"."play_date_id" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 11], ["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 4], ["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 4], ["LIMIT", 11]]
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" INNER JOIN "dogs" ON "play_dates"."id" = "dogs"."play_date_id" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 11], ["LIMIT", 11]]

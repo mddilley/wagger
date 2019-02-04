@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  date: 2019-02-04 09:41:47
+  dog_limit: 1
+
+two:
+  location: MyString
+  date: 2019-02-04 09:41:47
+  dog_limit: 1

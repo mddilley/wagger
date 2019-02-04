@@ -1,8 +1,8 @@
 module DogsHelper
 
   def breeds_for_select
-    breed = open('https://raw.githubusercontent.com/dariusk/corpora/master/data/animals/dogs.json')
-    JSON.parse(breed.read)["dogs"]
+    url = "https://raw.githubusercontent.com/dariusk/corpora/master/data/animals/dogs.json"
+    @breed ||= JSON.parse(open(url).read)["dogs"]
   end
 
 end

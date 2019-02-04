@@ -1,32 +1,34 @@
 <div class="container text-left text-light align-middle">
   <h3>Enter your dog's details below.</h3>
 
-  <%= form_for @dog, url: user_dogs_path do |dog| %>
-    <%= dog.label :name %><br>
-    <%= dog.text_field :name %><br>
+  <%= form_for @dog, url: user_dogs_path do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
 
-    <%= dog.label :age %><br>
-    <%= dog.number_field :age %><br>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %><br>
 
+    <%= f.label :breed %><br>
+    <%= f.select :breed, options_for_select(breeds_for_select) %><br>
 
-    <%= dog.label :breed %><br>
-    <%= dog.select :breed, options_for_select(breeds_for_select) %><br>
+    <%= f.label :sex %><br>
+    <%= f.label "Male" %>
+    <%= f.radio_button "sex", "Male" %>
+    <%= f.label "Female" %>
+    <%= f.radio_button "sex", "Female" %><br>
 
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %><br>
 
-    <%= dog.label :sex %><br>
-    <%= dog.label "Male" %>
-    <%= dog.radio_button "sex", "Male" %>
-    <%= dog.label "Female" %>
-    <%= dog.radio_button "sex", "Female" %><br>
+    <%= f.label "Fixed?" %><br>
+    <%= f.check_box :fixed, {:checked => true}, true, false %><br>
 
-    <%= dog.submit "Add Dog" %>
+    <%= f.label :friendly_rating %><br>
+    <%= f.number_field :friendly_rating, in: 1...11 %><br>
+
+    <%= f.label :aggressive_rating %><br>
+    <%= f.number_field :aggressive_rating, in: 1...11 %><br><br>
+
+    <%= f.submit "Add Dog" %>
   <% end %>
 </div>
-
-
-t.integer "age"
-t.string "breed"
-t.integer "weight"
-t.boolean "fixed"
-t.integer "friendly_rating"
-t.integer "aggressive_rating"

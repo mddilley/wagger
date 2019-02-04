@@ -8832,3 +8832,64 @@ Processing by DogsController#index as HTML
 Completed 200 OK in 69ms (Views: 62.0ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-04 15:31:27 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:3
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 244ms (Views: 198.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-04 15:31:33 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 33ms (Views: 29.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-04 15:32:25 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:3
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 83ms (Views: 58.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-04 15:32:30 -0600
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Redirected to http://localhost:3000/users/14
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/14" for 127.0.0.1 at 2019-02-04 15:32:30 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 60ms (Views: 51.7ms | ActiveRecord: 0.5ms)
+
+

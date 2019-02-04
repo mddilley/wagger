@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_user, :logged_in?
 
   def login(user)
     session[:id] = user.id
@@ -10,6 +10,24 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    User.find(session[:id])
+    @current_user ||= User.find(session[:id])
   end
+
+  private
+
+    def require_login
+      redirect_to root_path unless session[:id]
+    end
+
+    def find_user_by_id
+      @user = User.find(params[:id])
+    end
+
+    def find_user_by_email
+      @user = User.find_by(email: params[:email])
+    end
+
+    def authorized?
+      redirect_to user_path(current_user) unless find_user_by_id == current_user
+    end
 end

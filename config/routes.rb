@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :users, only: [:new, :create, :show, :update, :edit] do
-    resources :dogs, only: [:index, :show]
+    resources :dogs, only: [:index, :show, :new, :create]
   end
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'

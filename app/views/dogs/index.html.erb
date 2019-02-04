@@ -1,5 +1,9 @@
-<div class="container text-center text-light align-middle">
-  <% @dogs.all.each do |dog| %>
-    <%= dog.name %>
-  <% end %>
+<div class="container text-left text-light align-middle">
+  <p><%= link_to "Add a dog", new_user_dog_path(current_user) %></p>
+  <ul>
+    <% @dogs.all.each do |dog| %>
+      <li><a href="<%= user_dog_path(current_user, dog) %>"><%= dog.name %></a></li>
+    <% end %>
+  </ul>
+
 </div>

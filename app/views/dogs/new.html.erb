@@ -1,0 +1,16 @@
+<div class="container text-left text-light align-middle">
+  <h3>Enter your dog's details below.</h3>
+
+  <%= form_for @dog, url: user_dogs_path do |dog| %>
+    <%= dog.label :name %><br>
+    <%= dog.text_field :name %><br>
+
+    <%= dog.label :sex %><br>
+    <%= dog.label "Male" %>
+    <%= dog.radio_button "sex", "Male" %>
+    <%= dog.label "Female" %>
+    <%= dog.radio_button "sex", "Female" %><br>
+
+    <%= dog.submit "Add Dog" %>
+  <% end %>
+</div>

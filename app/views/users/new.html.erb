@@ -1,4 +1,4 @@
-<div class="text-center text-light">
+<div class="container text-left text-light align-middle">
   <h3>Sign up to start planning your dog dates!</h3>
 
   <%= form_for @user do |f| %>
@@ -11,7 +11,7 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br><br>
 
-    Enter details about your dog (or wait until later).
+    Enter details about your dog (or wait until later).<br>
     <%= f.fields_for :dogs do |dog| %>
       <%= dog.label :name %><br>
       <%= dog.text_field :name %><br>

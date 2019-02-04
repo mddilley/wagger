@@ -4,7 +4,7 @@
     <title>Wagger</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -13,12 +13,12 @@
   <body>
     <div class="bg">
 
-      <%= show_navbar.html_safe if current_user %>
+      <%= show_navbar.html_safe if logged_in? %>
 
-      <div class="container">
+      <!-- <div class="container"> -->
         <br><br>
         <%= yield %>
-      </div>
+      <!-- </div> -->
 
     </div>
 

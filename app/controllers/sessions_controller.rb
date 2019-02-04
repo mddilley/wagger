@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    find_user
+    find_user_by_email
     if @user.authenticate(params[:password])
       login(@user)
       redirect_to user_path(@user)
@@ -13,9 +13,4 @@ class SessionsController < ApplicationController
     end
   end
 
-  private
-
-    def find_user
-      @user = User.find_by(email: params[:email])
-    end
 end

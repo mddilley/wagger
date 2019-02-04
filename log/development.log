@@ -4409,3 +4409,376 @@ Migrating to AddPlayDateIdToDogs (20190204154355)
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 4], ["LIMIT", 11]]
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "dogs" ON "users"."id" = "dogs"."user_id" WHERE "dogs"."play_date_id" = ? LIMIT ?[0m  [["play_date_id", 4], ["LIMIT", 11]]
   [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" INNER JOIN "dogs" ON "play_dates"."id" = "dogs"."play_date_id" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 11], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-02-04 11:51:06 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No association found for name `dogs'. Has it been defined yet?):
+    13:   <body>
+    14:     <div class="bg">
+    15: 
+    16:       <%= show_navbar.html_safe if current_user %>
+    17: 
+    18:       <div class="container">
+    19:         <br><br>
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/application_controller.rb:13:in `current_user'
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__2603262724097748119_70173706983280'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:51:10 -0600
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (No association found for name `dogs'. Has it been defined yet?):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/users_controller.rb:8:in `new'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:51:50 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (23.9ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 71ms (Views: 48.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:53:29 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (68.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 152ms (Views: 97.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:54:10 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:54:25 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "Male":String):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex, "Male", "Male" %>
+    21:       <%= dog.radio_button :sex, "Female", "Female" %>
+    22: 
+    23:     <% end %>
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173752107400'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173752107400'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173752107400'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:54:46 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "Male":String):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex, "Male", "Male" %>
+    21:       <%= dog.radio_button :sex, "Female", {}, "Female" %>
+    22: 
+    23:     <% end %>
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173711866900'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173711866900'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173711866900'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:54:53 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 4, expected 2..3)):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex, "Male", {}, "Male" %>
+    21:       <%= dog.radio_button :sex, "Female", {}, "Female" %>
+    22: 
+    23:     <% end %>
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173717582640'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173717582640'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173717582640'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:57:47 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2..3)):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex %>
+    21: 
+    22:     <% end %>
+    23: 
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173728529400'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173728529400'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173728529400'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:59:20 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "Female":String):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex, "Male", "Female" %>
+    21: 
+    22:     <% end %>
+    23: 
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173753398280'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173753398280'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173753398280'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 11:59:31 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 4, expected 2..3)):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button :sex, {}, "Male", "Female" %>
+    21: 
+    22:     <% end %>
+    23: 
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173768686320'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173768686320'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173768686320'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:04:10 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "Male":String):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button "dog", "sex", "Male" %>
+    21: 
+    22:     <% end %>
+    23: 
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173730481620'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173730481620'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173730481620'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:04:15 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "Male":String):
+    17:       <%= dog.text_field :name %><br>
+    18: 
+    19:       <%= dog.label :sex %><br>
+    20:       <%= dog.radio_button "dogs", "sex", "Male" %>
+    21: 
+    22:     <% end %>
+    23: 
+  
+app/views/users/new.html.erb:20:in `block (2 levels) in _app_views_users_new_html_erb___2292630416335599693_70173768371540'
+app/views/users/new.html.erb:15:in `block in _app_views_users_new_html_erb___2292630416335599693_70173768371540'
+app/views/users/new.html.erb:4:in `_app_views_users_new_html_erb___2292630416335599693_70173768371540'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:04:22 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/michaeldilley/Desktop/Coding/Rails Project/wagger/app/views/users/new.html.erb:20: syntax error, unexpected tCONSTANT, expecting ')'
+...=( dog.radio_button sex", "Male" );@output_buffer.safe_appen...
+...                           ^~~~
+/Users/michaeldilley/Desktop/Coding/Rails Project/wagger/app/views/users/new.html.erb:24: syntax error, unexpected tCONSTANT, expecting ')'
+..._buffer.append=( f.submit "Sign Up" );@output_buffer.safe_ap...
+...                           ^~~~
+/Users/michaeldilley/Desktop/Coding/Rails Project/wagger/app/views/users/new.html.erb:31: unterminated string meets end of file
+          end
+             ^
+/Users/michaeldilley/Desktop/Coding/Rails Project/wagger/app/views/users/new.html.erb:31: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/users/new.html.erb:20: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/new.html.erb:24: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/new.html.erb:31: unterminated string meets end of file
+app/views/users/new.html.erb:31: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:04:28 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 45ms (Views: 40.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:05:50 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 58ms (Views: 52.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:05:59 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:06:19 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 50ms (Views: 44.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:06:32 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-04 12:07:26 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O60tEwPvLVhAGJukkEipDWqJavcWFgADtxt5MKRTqzlbORlTcrlrq3Hu9KX9s+LLJGVpW03pls3QsvAcqOE8vw==", "user"=>{"name"=>"test2", "email"=>"test1@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "dogs_attributes"=>{"0"=>{"name"=>"Ben", "sex"=>"Male"}}}, "commit"=>"Sign Up"}
+Unpermitted parameters: :password_confirmation, :dogs_attributes
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:15
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "test1@test.com"], ["password_digest", "$2a$10$MxNV90adLGYw6M4DMBBtBeRPk0Q6t2pjfMulrAS5.778v41ip0M5K"], ["name", "test2"], ["created_at", "2019-02-04 18:09:48.585278"], ["updated_at", "2019-02-04 18:09:48.585278"]]
+  ↳ app/controllers/users_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:15
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 142205ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2019-02-04 12:09:48 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `find_user' for #<UsersController:0x00007fa52f108908>
+Did you mean?  find_user_by_id):
+  
+app/controllers/users_controller.rb:52:in `authorized?'
+Started GET "/users/new" for 127.0.0.1 at 2019-02-04 12:18:14 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 118ms (Views: 60.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-04 12:18:42 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Op56GKohB6WAOH0cNqr3y3kkuKu6frqAWe+rE2Tr3qxaCk5Y23dBVrHOEh1bUbwNN8i7B+GBLE4+RiI/aFlJKg==", "user"=>{"name"=>"fakeperson", "email"=>"fakeperson@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "dogs_attributes"=>{"0"=>{"name"=>"Pupper", "sex"=>"Male"}}}, "commit"=>"Sign Up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "fakeperson@gmail.com"], ["password_digest", "$2a$10$gT3tm5WRyaesij0.bTja.OAZWZ9cYBukVofpHhx.CV8tC1BdvU.ma"], ["name", "fakeperson"], ["created_at", "2019-02-04 18:18:42.189670"], ["updated_at", "2019-02-04 18:18:42.189670"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mDog Create (0.1ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "sex", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pupper"], ["sex", "Male"], ["created_at", "2019-02-04 18:18:42.191320"], ["updated_at", "2019-02-04 18:18:42.191320"], ["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/users/13
+Completed 302 Found in 69ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2019-02-04 12:18:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 45ms (Views: 39.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/13/edit" for 127.0.0.1 at 2019-02-04 12:19:46 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:47
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (25.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 200 OK in 92ms (Views: 83.4ms | ActiveRecord: 0.4ms)
+
+

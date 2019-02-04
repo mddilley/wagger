@@ -10,6 +10,20 @@
     <%= f.password_field :password %><br>
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br><br>
+
+    Enter details about your dog (or wait until later).
+    <%= f.fields_for :dogs do |dog| %>
+      <%= dog.label :name %><br>
+      <%= dog.text_field :name %><br>
+
+      <%= dog.label :sex %><br>
+      <%= dog.label "Male" %>
+      <%= dog.radio_button "sex", "Male" %>
+      <%= dog.label "Female" %>
+      <%= dog.radio_button "sex", "Female" %><br>
+
+    <% end %>
+
     <%= f.submit "Sign Up" %>
   <% end %>
 </div>

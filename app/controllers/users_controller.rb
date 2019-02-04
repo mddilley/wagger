@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.dogs.build(name: "Dog Name")
   end
 
   def create
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :hobbies, :age, :city, :state, :admin)
+      params.require(:user).permit(:name, :email, :password, :hobbies, :age, :city, :state, :admin, dogs_attributes: [:name, :sex])
     end
 
     def require_login
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def authorized?
-      redirect_to user_path(current_user) unless find_user == current_user
+      redirect_to user_path(current_user) unless find_user_by_id == current_user
     end
 
 end

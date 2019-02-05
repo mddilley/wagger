@@ -25211,3 +25211,119 @@ No template found for PlayDatesController#create, rendering head :no_content
 Completed 204 No Content in 146015ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/play_dates/new" for 127.0.0.1 at 2019-02-05 17:26:03 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PlayDatesController#new as HTML
+  Rendering play_dates/new.html.erb within layouts/application
+  Rendered play_dates/new.html.erb within layouts/application (19.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (41.2ms)
+Completed 200 OK in 371ms (Views: 339.8ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/play_dates" for 127.0.0.1 at 2019-02-05 17:26:31 -0600
+Processing by PlayDatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EUZWefg3B2yPmHvLc0udj8H50v4loI4/XpRNnmKQUA9TOk/PtJ/xvoA8mznHHiRVJwxs92GZPscxDLj+sWHY4Q==", "play_date"=>{"location"=>"the park", "date"=>"2019-02-12", "time"=>"17:12", "dog_limit"=>"3"}, "commit"=>"Create Playdate"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:8
+  [1m[36mPlayDate Create (0.6ms)[0m  [1m[32mINSERT INTO "play_dates" ("location", "date", "time", "dog_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["location", "the park"], ["date", "2019-02-12"], ["time", "2000-01-01 17:12:00"], ["dog_limit", 3], ["created_at", "2019-02-05 23:26:31.255676"], ["updated_at", "2019-02-05 23:26:31.255676"]]
+  ↳ app/controllers/play_dates_controller.rb:8
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:8
+Redirected to http://localhost:3000/play_dates/7
+Completed 302 Found in 22ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:26:31 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `location' for nil:NilClass):
+    1: <%= @playdate.location %>
+  
+app/views/play_dates/show.html.erb:1:in `_app_views_play_dates_show_html_erb___3886042238290118309_70093987008240'
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:27:16 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (28.9ms)
+Completed 200 OK in 149ms (Views: 121.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:27:47 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.9ms)
+Completed 200 OK in 51ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:27:57 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.7ms)
+Completed 200 OK in 62ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:28:42 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:28:53 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.8ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-05 17:29:25 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:16
+  Rendering play_dates/show.html.erb within layouts/application
+  Rendered play_dates/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.4ms)
+Completed 200 OK in 56ms (Views: 50.5ms | ActiveRecord: 0.5ms)
+
+

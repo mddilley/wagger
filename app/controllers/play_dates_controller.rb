@@ -4,13 +4,16 @@ class PlayDatesController < ApplicationController
   end
 
   def create
-    binding.pry
     @playdate = PlayDate.new(play_date_params)
     if @playdate.save
       redirect_to play_date_path(@playdate)
     else
       render :new
     end
+  end
+
+  def show
+    @playdate = PlayDate.find(params[:id])
   end
 
   private

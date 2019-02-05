@@ -1,0 +1,19 @@
+<div class="container text-left text-light align-middle form-group">
+  <h3>Enter your dog's details below.</h3>
+
+  <%= form_for @playdate, url: play_dates_path do |f| %>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %><br>
+
+    <%= f.label :date %><br>
+    <%= f.date_field :date %><br>
+
+    <%= f.label :time %><br>
+    <%= f.time_field :time %><br>
+
+    <%= f.label :dog_limit %><br>
+    <%= f.number_field :dog_limit %><br>
+
+    <%= f.submit "Create Playdate" %>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
 class PlayDate < ApplicationRecord
-  has_many :dogs
-  has_many :users, through: :dogs
+  has_many :dog_play_dates
+  has_many :dogs, through: :dog_play_dates
 end

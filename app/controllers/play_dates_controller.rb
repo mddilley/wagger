@@ -16,6 +16,16 @@ class PlayDatesController < ApplicationController
     @playdate = PlayDate.find(params[:id])
   end
 
+  def edit
+    @playdate = PlayDate.find(params[:id])
+  end
+
+  def update
+    @playdate = PlayDate.find(params[:id])
+    @playdate.update(play_date_params)
+    redirect_to play_date_path(@playdate)
+  end
+
   private
 
     def play_date_params

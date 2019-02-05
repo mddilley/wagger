@@ -9,7 +9,8 @@
     <%= f.number_field :age %><br>
 
     <%= f.label :breed %><br>
-    <%= f.select :breed, options_for_select(breeds_for_select) %><br>
+    <%= f.text_field :breed, list: "dog_breeds" %>
+    <%== data_list("dog_breeds", breeds_for_select) %><br>
 
     <%= f.label :sex %><br>
     <%= f.label "Male" %>
@@ -20,7 +21,7 @@
     <%= f.label :weight %><br>
     <%= f.number_field :weight %><br>
 
-    <%= f.label "Fixed?" %><br>
+    <%= f.label "Fixed?" %>
     <%= f.check_box :fixed, {:checked => true}, true, false %><br>
 
     <%= f.label :friendly_rating %><br>

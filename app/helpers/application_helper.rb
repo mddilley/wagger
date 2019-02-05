@@ -24,5 +24,20 @@ module ApplicationHelper
     HTML
   end
 
+  def populate_data_list(array)
+    string = ""
+    string.tap {
+      array.each do |d|
+        string << "<option value=\"#{d}\">#{d}</option>"
+      end
+    }
+  end
+
+  def data_list(id_tag, array)
+    <<-HTML
+      <datalist id="#{id_tag}"><select>#{populate_data_list(array)}</select></datalist>
+    HTML
+  end
+
 
 end

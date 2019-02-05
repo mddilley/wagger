@@ -26,6 +26,10 @@ class PlayDatesController < ApplicationController
     redirect_to play_date_path(@playdate)
   end
 
+  def index
+    @playdates = PlayDate.all
+  end
+
   private
 
     def play_date_params

@@ -20,8 +20,17 @@ module ApplicationHelper
             </li>
           </ul>
         </div>
+        #{logout_button}
       </nav>
     HTML
+  end
+
+  def logout_button
+    if logged_in?
+      <<-HTML
+            <div><a class="btn btn-danger btn-sm" href="#{logout_path}" role="button">Logout</a></div>
+      HTML
+    end
   end
 
   def populate_data_list(array)

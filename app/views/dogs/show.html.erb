@@ -7,4 +7,5 @@ Sex: <%= @dog.sex %><br>
 Fixed? <%= @dog.fixed_to_string %><br>
 How friendly? <%= @dog.friendly_rating %><br>
 How aggressive? <%= @dog.aggressive_rating %><br>
+<p><%= link_to "Update Dog", edit_user_dog_path(current_user, @dog) %></p>
 </div>

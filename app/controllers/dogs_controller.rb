@@ -17,7 +17,17 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    find_dog_by_id
+  end
+
+  def edit
+    find_dog_by_id
+  end
+
+  def update
+    find_dog_by_id
+    @dog.update(dog_params)
+    redirect_to user_dog_path(current_user, @dog)
   end
 
   private

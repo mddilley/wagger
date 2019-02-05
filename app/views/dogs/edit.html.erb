@@ -1,0 +1,35 @@
+<div class="container text-left text-light align-middle form-group">
+  <h3>Modify your dog's details below.</h3>
+
+  <%= form_for @dog, url: user_dog_path(current_user, @dog) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :age %><br>
+    <%= f.number_field :age %><br>
+
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed, list: "dog_breeds" %>
+    <%== data_list("dog_breeds", breeds_for_select) %><br>
+
+    <%= f.label :sex %><br>
+    <%= f.label "Male" %>
+    <%= f.radio_button "sex", "Male" %>
+    <%= f.label "Female" %>
+    <%= f.radio_button "sex", "Female" %><br>
+
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %><br>
+
+    <%= f.label "Fixed?" %>
+    <%= f.check_box :fixed, {:checked => true}, true, false %><br>
+
+    <%= f.label :friendly_rating %><br>
+    <%= f.number_field :friendly_rating, in: 1...11 %><br>
+
+    <%= f.label :aggressive_rating %><br>
+    <%= f.number_field :aggressive_rating, in: 1...11 %><br><br>
+
+    <%= f.submit "Update Dog" %>
+  <% end %>
+</div>

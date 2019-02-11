@@ -1,7 +1,7 @@
 <div class="container text-left text-light align-middle">
   Location: <%= @playdate.location %><br>
-  Date: <%= @playdate.date %><br>
-  Time: <%= @playdate.time %><br>
+  Date: <%= @playdate.format_date %><br>
+  Time: <%= @playdate.format_time %><br>
   Dog Limit: <%= @playdate.dog_limit %><br>
   <a class="btn btn-primary btn-lg" href="<%= edit_play_date_path(@playdate) %>" role="button">Update Playdate</a>
 </div>

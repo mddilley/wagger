@@ -14,6 +14,16 @@
     <%= f.label :dog_limit %><br>
     <%= f.number_field :dog_limit %><br>
 
+    Choose one of your dogs to add to the playdate (or wait until later).<br>
+    <%= f.fields_for :dog_play_dates do |d| %>
+      <%= d.label :dog_id %><br>
+      <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+
+      <%= d.label :note %><br>
+      <%= d.text_area :note %><br>
+
+    <% end %>
+
     <%= f.submit "Create Playdate" %>
   <% end %>
 </div>

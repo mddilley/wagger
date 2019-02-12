@@ -1,6 +1,8 @@
 class PlayDatesController < ApplicationController
   def new
     @playdate = PlayDate.new
+    @playdate.dog_play_dates.build
+    @dogs = current_user.dogs
   end
 
   def create
@@ -33,6 +35,6 @@ class PlayDatesController < ApplicationController
   private
 
     def play_date_params
-      params.require(:play_date).permit(:location, :date, :time, :dog_limit)
+      params.require(:play_date).permit(:location, :date, :time, :dog_limit, dog_play_dates_attributes: [:dog_id, :note, :play_date_id])
     end
 end

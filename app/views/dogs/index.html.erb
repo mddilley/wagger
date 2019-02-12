@@ -1,9 +1,8 @@
 <div class="container text-left text-light align-middle">
-  <p><%= link_to "Add a dog", new_user_dog_path(current_user) %></p>
+  <a class="btn btn-success btn-lg" href="<%= new_user_dog_path(current_user) %>" role="button">Add a dog</a>
   <ul>
     <% @dogs.all.each do |dog| %>
       <li><a href="<%= user_dog_path(current_user, dog) %>"><%= dog.name %></a></li>
     <% end %>
   </ul>
-
 </div>

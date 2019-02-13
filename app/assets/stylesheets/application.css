@@ -42,12 +42,16 @@
  }
 
  hr.fade {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #000);
-}
+   border: 0;
+   height: 1px;
+   background: #333;
+   background-image: linear-gradient(to right, #ccc, #333, #000);
+ }
 
-.field_with_errors {
-  border: linear-gradient(to right, #F00, transparent, transparent);
-}
+ .field_with_errors {
+   border: linear-gradient(to right, #F00, transparent, transparent);
+ }
+
+ #error_message {
+   color: red;
+ }

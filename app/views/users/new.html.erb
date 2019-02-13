@@ -1,6 +1,14 @@
 <div class="container text-left text-light align-middle">
   <h3>Sign up to start planning your dog dates!</h3><br>
-
+  <% if @user.errors.any? %>
+    <div id="error_message">
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li>* <%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
     <%= form_for @user do |f| %>
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control-lg" %><br>

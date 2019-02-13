@@ -9,6 +9,6 @@
       <li><%= link_to d.name, user_dog_path(d) %></li>
     <% end %>
   </ol>
-  <a class="btn btn-primary btn-lg" href="<%= edit_play_date_path(@playdate) %>" role="button">Update Playdate</a><br><br>
+  <%= link_to 'Update Playdate',  edit_play_date_path(@playdate), class: "btn btn-success btn-lg" %><br><br>
   <%= link_to 'Cancel Playdate',  play_date_path(@playdate), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" %>
 </div>

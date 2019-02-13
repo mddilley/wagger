@@ -27,6 +27,6 @@
    background-size: cover;
  }
 
- ul li a {
+ ul li a, ol li a {
    color: rgb(41,162,182) !important;
  }

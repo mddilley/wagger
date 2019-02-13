@@ -2,6 +2,9 @@
   <h3>Enter your dog's details below.</h3>
 
   <%= form_for @playdate, url: play_dates_path do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
     <%= f.label :location %><br>
     <%= f.text_field :location %><br>
 

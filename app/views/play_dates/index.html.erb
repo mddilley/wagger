@@ -1,9 +1,9 @@
 <div class="container text-left text-light align-middle">
   <a class="btn btn-success btn-lg" href="<%= new_play_date_path %>" role="button">Create a New Playdate</a>
   <ul>
-    <% @playdates.each do |date| %>
+    <% @playdates.each do |p| %>
       <li>
-        <a href="<%= play_date_path(date) %>"><%= date.location %></a>
+        <a href="<%= play_date_path(p) %>"><%= p.name %></a><%= " - #{p.location}, #{p.format_date}, #{p.format_time}"  %>
       </li>
     <% end %>
   </ul>

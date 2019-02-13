@@ -33,6 +33,11 @@ class PlayDatesController < ApplicationController
     @playdates = PlayDate.all
   end
 
+  def destroy
+    PlayDate.find(params[:id]).destroy
+    redirect_to play_dates_path
+  end
+
   private
 
     def play_date_params

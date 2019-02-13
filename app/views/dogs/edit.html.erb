@@ -13,10 +13,12 @@
     <%== data_list("dog_breeds", breeds_for_select) %><br>
 
     <%= f.label :sex %><br>
-    <%= f.label "Male" %>
-    <%= f.radio_button "sex", "Male" %>
-    <%= f.label "Female" %>
-    <%= f.radio_button "sex", "Female" %><br>
+    <div class="form-check">
+      <%= f.radio_button "sex", "Male", class: "form-check-input"  %>
+      <%= f.label "Male", class: "form-check-label" %><br>
+      <%= f.radio_button "sex", "Female", class: "form-check-input"  %>
+      <%= f.label "Female", class: "form-check-label" %>
+    </div>
 
     <%= f.label :weight %><br>
     <%= f.number_field :weight %><br>

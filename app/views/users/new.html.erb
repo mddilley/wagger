@@ -1,29 +1,34 @@
 <div class="container text-left text-light align-middle">
-  <h3>Sign up to start planning your dog dates!</h3>
+  <h3>Sign up to start planning your dog dates!</h3><br>
 
-  <%= form_for @user do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br><br>
+    <%= form_for @user do |f| %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control-lg" %><br>
 
-    Enter details about your dog (or wait until later).<br>
-    <%= f.fields_for :dogs do |dog| %>
-      <%= dog.label :name %><br>
-      <%= dog.text_field :name %><br>
+      <%= f.label :email %><br>
+      <%= f.email_field :email, class: "form-control-lg" %><br>
 
-      <%= dog.label :sex %><br>
-      <%= dog.label "Male" %>
-      <%= dog.radio_button "sex", "Male" %>
-      <%= dog.label "Female" %>
-      <%= dog.radio_button "sex", "Female" %><br>
+      <%= f.label :password %><br>
+      <%= f.password_field :password, class: "form-control-lg" %><br>
 
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, class: "form-control-lg" %><br><br>
+      Enter details about your dog (or wait until later).<br><br>
+      <%= f.fields_for :dogs do |dog| %>
+        <%= dog.label :name %><br>
+        <%= dog.text_field :name %><br>
+
+        <%= dog.label :sex %><br>
+        <div class="form-check">
+
+          <%= dog.radio_button "sex", "Male", class: "form-check-input"  %>
+          <%= dog.label "Male", class: "form-check-label" %><br>
+          <%= dog.radio_button "sex", "Female", class: "form-check-input"  %>
+          <%= dog.label "Female", class: "form-check-label" %>
+        </div><br>
+      <% end %>
+
+      <%= f.submit "Sign Up", class: "btn btn-success btn-lg" %>
     <% end %>
-
-    <%= f.submit "Sign Up" %>
-  <% end %>
+  </div>
 </div>

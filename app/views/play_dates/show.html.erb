@@ -3,5 +3,11 @@
   Date: <%= @playdate.format_date %><br>
   Time: <%= @playdate.format_time %><br>
   Dog Limit: <%= @playdate.dog_limit %><br>
+  Dog Participants: <br>
+  <ol>
+    <% @playdate.dogs.each do |d| %>
+      <li><%= link_to d.name, user_dog_path(d) %></li>
+    <% end %>
+  </ol>
   <a class="btn btn-primary btn-lg" href="<%= edit_play_date_path(@playdate) %>" role="button">Update Playdate</a>
 </div>

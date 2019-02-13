@@ -20,6 +20,7 @@ class PlayDatesController < ApplicationController
 
   def edit
     @playdate = PlayDate.find(params[:id])
+    @dogs = current_user.dogs
   end
 
   def update

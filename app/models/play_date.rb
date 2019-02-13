@@ -13,4 +13,8 @@ class PlayDate < ApplicationRecord
     time.strftime("%l:%M %p")
   end
 
+  def self.last_five
+    order("created_at desc").limit(5)
+  end
+
 end

@@ -3,4 +3,11 @@
   <hr class="style-one">
   <p>Wagger gives you a way to connect with other dog owners to meet up and allow all of our fuzzy friends to play!</p>
   <p>Start by adding your dogs and joining an existing playdate. You can also create a playdate of your own!</p>
+
+  <u>Newest playdates:</u>
+  <ol>
+    <% PlayDate.last_five.each do |p| %>
+      <li><%= link_to p.location, play_date_path(p) %></li>
+    <% end %>
+  </ol>
 </div>

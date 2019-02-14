@@ -8,5 +8,5 @@ Fixed? <%= @dog.fixed_to_string %><br>
 How friendly? <%= @dog.friendly_rating %><br>
 How aggressive? <%= @dog.aggressive_rating %><br>
 <p><%= link_to "Update Dog", edit_user_dog_path(current_user, @dog), class: "btn btn-success btn-lg" if current_user.dogs.include?(@dog)%></p>
-<%= link_to 'Remove Dog',  user_dog_path(@dog), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" if current_user.dogs.include?(@dog)%>
+<%= link_to 'Remove Dog', user_dog_path(current_user, @dog), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" if current_user.dogs.include?(@dog)%>
 </div>

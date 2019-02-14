@@ -1,4 +1,7 @@
 class PlayDatesController < ApplicationController
+
+  before_action :authorized?, only: [:destroy]
+
   def new
     @playdate = PlayDate.new
     @playdate.dog_play_dates.build
@@ -6,6 +9,7 @@ class PlayDatesController < ApplicationController
   end
 
   def create
+    binding.pry
     @playdate = PlayDate.new(play_date_params)
     @dogs = current_user.dogs
     if @playdate.save
@@ -43,6 +47,6 @@ class PlayDatesController < ApplicationController
   private
 
     def play_date_params
-      params.require(:play_date).permit(:name, :location, :date, :time, :dog_limit, dog_play_dates_attributes: [:dog_id, :note, :id])
+      params.require(:play_date).permit(:name, :location, :date, :time, :dog_limit, :user_id, dog_play_dates_attributes: [:id, :dog_id, :note])
     end
 end

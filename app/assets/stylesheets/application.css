@@ -52,6 +52,6 @@
    border: linear-gradient(to right, #F00, transparent, transparent);
  }
 
- #error_message {
+ .error_message {
    color: red;
  }

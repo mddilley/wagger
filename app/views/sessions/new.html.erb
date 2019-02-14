@@ -1,6 +1,10 @@
 <div class="container text-left text-light align-middle">
   <h3>Log in to start planning your dog dates!</h3>
 
+  <% if flash[:invalid] %>
+    <div class="error_message"><%= flash[:invalid].html_safe %></div>
+  <% end %>
+
   <%= form_tag(sessions_path) do %>
     <%= label_tag "Email" %><br>
     <%= text_field_tag "email", nil, class: "form-control-lg" %><br>

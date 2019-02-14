@@ -5,11 +5,13 @@ class SessionsController < ApplicationController
 
   def create
     find_user_by_email
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       login(@user)
       redirect_to welcome_path
     else
-      redirect_to new_user_path
+      flash[:invalid] = %Q[Please fill all fields with valid input, or visit <a href="#{new_user_path}">Signup</a> to create a new account.]
+      redirect_to login_path
+      # redirect_to new_user_path
     end
   end
 

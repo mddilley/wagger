@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+  before_action :authorized?, only: [:edit, :update]
+
   def index
     @dogs = User.find(params[:user_id]).dogs
   end

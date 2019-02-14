@@ -7,6 +7,7 @@ class PlayDatesController < ApplicationController
 
   def create
     @playdate = PlayDate.new(play_date_params)
+    @dogs = current_user.dogs
     if @playdate.save
       redirect_to play_date_path(@playdate)
     else

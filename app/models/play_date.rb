@@ -5,6 +5,13 @@ class PlayDate < ApplicationRecord
 
   accepts_nested_attributes_for :dog_play_dates
 
+  validates :name, presence: true
+  validates :location, presence: true
+  validates :date, presence: true
+  validates :time, presence: true
+  validates :dog_limit, presence: true
+  validates :dog_limit, numericality: true
+
   def format_date
     date.strftime("%B %d, %Y")
   end

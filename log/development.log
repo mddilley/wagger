@@ -38757,3 +38757,255 @@ Processing by DogsController#new as HTML
 Completed 200 OK in 447ms (Views: 438.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 10:09:53 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PlayDatesController#index as HTML
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 10:09:53 -0600
+  Rendering play_dates/index.html.erb within layouts/application
+Processing by PlayDatesController#index as HTML
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (16.6ms)
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (17.4ms)
+Completed 200 OK in 283ms (Views: 266.3ms | ActiveRecord: 1.3ms)
+
+
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (19.6ms)
+Completed 200 OK in 319ms (Views: 296.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/play_dates/new" for 127.0.0.1 at 2019-02-14 10:09:56 -0600
+Processing by PlayDatesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/new.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/play_dates/new.html.erb:23
+  Rendered play_dates/new.html.erb within layouts/application (26.3ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 55.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-14 10:14:36 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:3
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/index.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 101ms (Views: 55.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-14 10:14:50 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:3
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 10:14:53 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.5ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (23.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.6ms)
+Completed 200 OK in 88ms (Views: 75.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/play_dates/new" for 127.0.0.1 at 2019-02-14 10:14:56 -0600
+Processing by PlayDatesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/new.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/play_dates/new.html.erb:23
+  Rendered play_dates/new.html.erb within layouts/application (17.6ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 109ms (Views: 68.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/play_dates" for 127.0.0.1 at 2019-02-14 10:17:07 -0600
+Processing by PlayDatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vE6rcGytUlBdOU0QbCx37fDRhOGc8+EL0bMY60Fp/tV+8cSartIYtL29NwkHr3ZeRcuFxmglqRYa3Oh4VrEn0A==", "play_date"=>{"name"=>"", "location"=>"", "date"=>"", "time"=>"", "dog_limit"=>"", "dog_play_dates_attributes"=>{"0"=>{"dog_id"=>"8", "note"=>""}}}, "commit"=>"Create Playdate"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[36mDog Load (0.5ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `name' for #<DogPlayDate id: nil, dog_id: 8, play_date_id: nil, note: "">):
+  
+app/controllers/play_dates_controller.rb:10:in `create'
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-14 10:18:08 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:3
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+Completed 200 OK in 64ms (Views: 59.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/14/dogs/new" for 127.0.0.1 at 2019-02-14 10:18:09 -0600
+Processing by DogsController#new as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:7
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/new.html.erb within layouts/application (640.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.0ms)
+Completed 200 OK in 682ms (Views: 675.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/14/dogs" for 127.0.0.1 at 2019-02-14 10:18:11 -0600
+Processing by DogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gltrzx3LoQvYY9qQbgFhSvYKWyBK7bIcmhQsug5ew330Ybq5FRee5W9CFEwe7Awl2zm7Bb6svsO79n7mQdWRHw==", "dog"=>{"name"=>"", "age"=>"", "breed"=>"", "weight"=>"", "fixed"=>"true", "friendly_rating"=>"", "aggressive_rating"=>""}, "commit"=>"Add Dog", "user_id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dogs_controller.rb:12
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/dogs_controller.rb:12
+  Rendering dogs/new.html.erb within layouts/application
+  Rendered dogs/new.html.erb within layouts/application (151.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.1ms)
+Completed 200 OK in 188ms (Views: 181.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 10:18:16 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.7ms)
+Completed 200 OK in 62ms (Views: 56.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/play_dates/new" for 127.0.0.1 at 2019-02-14 10:18:21 -0600
+Processing by PlayDatesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/new.html.erb within layouts/application
+  [1m[36mDog Load (2.8ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/play_dates/new.html.erb:33
+  Rendered play_dates/new.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 75ms (Views: 64.7ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/play_dates" for 127.0.0.1 at 2019-02-14 10:18:30 -0600
+Processing by PlayDatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nf1VNkZ1nbTCbtKsU+5vZdRJ3HaBaPd5VgutsZGbUcVfQjrchArXUCLqqLU4bW7WYVPdUXW+v2SdZF0ihkOIwA==", "play_date"=>{"name"=>"", "location"=>"", "date"=>"", "time"=>"", "dog_limit"=>"", "dog_play_dates_attributes"=>{"0"=>{"dog_id"=>"8", "note"=>""}}}, "commit"=>"Create Playdate"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `name' for #<DogPlayDate id: nil, dog_id: 8, play_date_id: nil, note: "">):
+  
+app/controllers/play_dates_controller.rb:10:in `create'
+Started POST "/play_dates" for 127.0.0.1 at 2019-02-14 10:19:28 -0600
+Processing by PlayDatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBPNVgZTGbRpQgkv1HnZGl+Q/WtHdGdDvi7kkeE2sCvDsHfTprFKJn7H6ndWOK1vANeM3Ui9B3qQpHuTCUTWCg==", "play_date"=>{"name"=>"", "location"=>"", "date"=>"", "time"=>"", "dog_limit"=>"", "dog_play_dates_attributes"=>{"0"=>{"dog_id"=>"8", "note"=>""}}}, "commit"=>"Create Playdate"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:10
+  Rendering play_dates/new.html.erb within layouts/application
+  Rendered play_dates/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30:     Choose one of your dogs to add to the playdate (or wait until later).<br>
+    31:     <%= f.fields_for :dog_play_dates do |d| %>
+    32:       <%= d.label :dog_id %><br>
+    33:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+    34: 
+    35:       <%= d.label :note %><br>
+    36:       <%= d.text_area :note %><br>
+  
+app/views/play_dates/new.html.erb:33:in `block (2 levels) in _app_views_play_dates_new_html_erb___916673556683243181_70339770080120'
+app/views/play_dates/new.html.erb:31:in `block in _app_views_play_dates_new_html_erb___916673556683243181_70339770080120'
+app/views/play_dates/new.html.erb:14:in `_app_views_play_dates_new_html_erb___916673556683243181_70339770080120'
+app/controllers/play_dates_controller.rb:13:in `create'
+Started POST "/play_dates" for 127.0.0.1 at 2019-02-14 10:21:10 -0600
+Processing by PlayDatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBPNVgZTGbRpQgkv1HnZGl+Q/WtHdGdDvi7kkeE2sCvDsHfTprFKJn7H6ndWOK1vANeM3Ui9B3qQpHuTCUTWCg==", "play_date"=>{"name"=>"", "location"=>"", "date"=>"", "time"=>"", "dog_limit"=>"", "dog_play_dates_attributes"=>{"0"=>{"dog_id"=>"8", "note"=>""}}}, "commit"=>"Create Playdate"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:11
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/play_dates_controller.rb:11
+  Rendering play_dates/new.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/play_dates/new.html.erb:33
+  Rendered play_dates/new.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 125ms (Views: 50.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 10:21:22 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.4ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.7ms)
+Completed 200 OK in 52ms (Views: 47.7ms | ActiveRecord: 0.7ms)
+
+

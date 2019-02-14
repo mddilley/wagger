@@ -1,6 +1,16 @@
 <div class="container text-left text-light align-middle form-group">
   <h3>Enter your dog's details below.</h3>
 
+  <% if @dog.errors.any? %>
+    <div class="error_message">
+      <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+        <li>* <%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for @dog, url: user_dogs_path do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>

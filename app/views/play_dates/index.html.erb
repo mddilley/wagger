@@ -1,5 +1,4 @@
 <div class="container text-left text-light align-middle">
-  <a class="btn btn-success btn-lg" href="<%= new_play_date_path %>" role="button">Create a New Playdate</a>
   <ul>
     <% @playdates.each do |p| %>
       <li>
@@ -7,4 +6,5 @@
       </li>
     <% end %>
   </ul>
+  <%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg" %>
 </div>

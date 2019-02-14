@@ -17,14 +17,23 @@
     <%= f.label :dog_limit %><br>
     <%= f.number_field :dog_limit %><br>
 
-    <%= f.fields_for :dog_play_dates, @playdate.dogs.where(user_id: current_user.id) do |d| %>
+    <%= f.fields_for :dog_play_dates do |d| %>
 
-      <%= d.label :dog_id %><br>
-      <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+      <% if d.object.id == nil %>
+        <u>Add a new participant</u><br>
+        <%= d.label :dog_id %><br>
+        <%= d.collection_select :dog_id, @dogs, :id, :name, :include_blank => true %><br>
 
-      <%= d.label :note %><br>
-      <%= d.text_area :note %><br>
+        <%= d.label :note %><br>
+        <%= d.text_area :note %><br>
+      <% elsif current_user.dogs.include?(d.object.dog) %>
+        <u>Edit your existing participants</u><br>
+        <%= d.label :dog_id %><br>
+        <%= d.collection_select :dog_id, @dogs, :id, :name, :include_blank => true %><br>
 
+        <%= d.label :note %><br>
+        <%= d.text_area :note %><br>
+      <% end %>
     <% end %>
     <br>
     <%= f.submit "Update Playdate", class: "btn btn-success btn-lg" %>

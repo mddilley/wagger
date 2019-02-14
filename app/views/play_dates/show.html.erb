@@ -7,7 +7,7 @@
   Dog Participants: <br>
   <ol>
     <% @playdate.dogs.each do |d| %>
-      <li><%= link_to d.name, user_dog_path(d) %>
+      <li><%= link_to d.name, user_dog_path(d.user, d) %>
           <p>Note: <%= DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id).note %></p>
       </li>
     <% end %>

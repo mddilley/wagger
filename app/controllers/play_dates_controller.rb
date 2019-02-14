@@ -42,6 +42,6 @@ class PlayDatesController < ApplicationController
   private
 
     def play_date_params
-      params.require(:play_date).permit(:name, :location, :date, :time, :dog_limit, dog_play_dates_attributes: [:dog_id, :note, :play_date_id])
+      params.require(:play_date).permit(:name, :location, :date, :time, :dog_limit, dog_play_dates_attributes: [:dog_id, :note, :id])
     end
 end

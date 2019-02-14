@@ -51656,3 +51656,69 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 56ms (Views: 51.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-02-14 17:21:48 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 197ms (Views: 188.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-14 17:23:12 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-14 17:24:58 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 83ms (Views: 80.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-14 17:25:31 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-02-14 17:25:40 -0600
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-02-14 17:25:40 -0600
+Started GET "/auth/facebook/callback?code=AQAjb9c0IlGHFNXeL4ff92Fup9VU9_PR6fAKGU2m8YIG77hWL7FKiZuC14AfWMIli0_dO_KWL9FwjwoLY3qKWxoccoITCW0HOKQq9z9KtoYMHyL3P2LfYc4lkC1doTXLBHhoL9uLhwhPGw8jWlil5rECd6ZimbneafAzN_KdTTHQ8qE8wpEVHEWqOSkxmAcRQNYtTPMS-K2EhJrnqweB7qunB2qhEO2UKLNQLp04XaQWdVU6xugOgXJbm2L2DFron24ROjAgqoPjZwiFaFrU3SCwjQbdGp9P-O2XPMsLVbQh_WXURPBRD19xg5y2kJYZ1PgVxkCIkAs87AELqO_M6WF6vrxiW1A2TCLQPBdNbEIYKjo0NQAXKu4FJ_2K8Pd-4R0&state=7d5e62779a64937c4b1adce72691c8ce33edaa084da8198d" for 127.0.0.1 at 2019-02-14 17:25:40 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAjb9c0IlGHFNXeL4ff92Fup9VU9_PR6fAKGU2m8YIG77hWL7FKiZuC14AfWMIli0_dO_KWL9FwjwoLY3qKWxoccoITCW0HOKQq9z9KtoYMHyL3P2LfYc4lkC1doTXLBHhoL9uLhwhPGw8jWlil5rECd6ZimbneafAzN_KdTTHQ8qE8wpEVHEWqOSkxmAcRQNYtTPMS-K2EhJrnqweB7qunB2qhEO2UKLNQLp04XaQWdVU6xugOgXJbm2L2DFron24ROjAgqoPjZwiFaFrU3SCwjQbdGp9P-O2XPMsLVbQh_WXURPBRD19xg5y2kJYZ1PgVxkCIkAs87AELqO_M6WF6vrxiW1A2TCLQPBdNbEIYKjo0NQAXKu4FJ_2K8Pd-4R0", "state"=>"7d5e62779a64937c4b1adce72691c8ce33edaa084da8198d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mike.dilley@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 25ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2019-02-14 17:25:41 -0600
+Processing by WelcomeController#welcome as HTML
+  Rendering welcome/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mPlayDate Load (0.4ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" ORDER BY created_at desc LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/views/welcome/welcome.html.erb:9
+  Rendered welcome/welcome.html.erb within layouts/application (41.5ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+Completed 200 OK in 84ms (Views: 79.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-02-14 17:25:48 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-14 17:25:48 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 64ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+

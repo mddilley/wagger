@@ -3,8 +3,10 @@
     <h1 class="display-2 font-weight-bold">🐶</h1>
     <h2>Wag better - <u>together</u>.</h2>
     <p class="lead"><br>
-      <a class="btn btn-success btn-lg" href="<%= new_user_path %>" role="button">Sign Up</a>
-      <span>&nbsp&nbsp&nbspor&nbsp&nbsp&nbsp</span>
-      <a class="btn btn-success btn-lg" href="<%= login_path %>" role="button">Log In</a>
+      <p><a class="btn btn-success btn-lg" href="<%= new_user_path %>" role="button">Sign Up</a></p>
+      <p>or</p>
+      <p><a class="btn btn-success btn-lg" href="<%= login_path %>" role="button">Log In</a></p>
+      <p>or</p>
+      <h3><%= link_to('Log in with Facebook <i class="fab fa-facebook-square"></i>'.html_safe, '/auth/facebook') %></h3>
     </p>
 </div>

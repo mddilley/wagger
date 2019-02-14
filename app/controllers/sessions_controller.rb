@@ -4,14 +4,23 @@ class SessionsController < ApplicationController
   end
 
   def create
-    find_user_by_email
-    if @user && @user.authenticate(params[:password])
-      login(@user)
+    if auth
+      @user = User.find_or_create_by(email: auth['info']['email']) do |u|
+        u.name = auth['info']['name'].split(" ")[0]
+        u.email = auth['info']['email']
+        u.password = auth['credentials']['token'][0..9]
+        u.password_confirmation = auth['credentials']['token'][0..9]
+      end
+      session[:id] = @user.id
       redirect_to welcome_path
-    else
-      flash[:invalid] = %Q[Please fill all fields with valid input, or visit <a href="#{new_user_path}">Signup</a> to create a new account.]
-      redirect_to login_path
-      # redirect_to new_user_path
+    elsif find_user_by_email
+      if @user && @user.authenticate(params[:password])
+        login(@user)
+        redirect_to welcome_path
+      else
+        flash[:invalid] = %Q[Please fill all fields with valid input, or visit <a href="#{new_user_path}">Signup</a> to create a new account.]
+        redirect_to login_path
+      end
     end
   end
 
@@ -19,5 +28,11 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
+
+  private
+
+    def auth
+      request.env['omniauth.auth']
+    end
 
 end

@@ -30,7 +30,10 @@ gem 'pry'
 gem 'json'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'thin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

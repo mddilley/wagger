@@ -40525,3 +40525,377 @@ Processing by PlayDatesController#edit as HTML
 Completed 200 OK in 74ms (Views: 67.5ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:06:56 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDogPlayDate Load (0.1ms)[0m  [1m[34mSELECT "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/edit.html.erb:20
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 19]]
+  ↳ app/views/play_dates/edit.html.erb:21
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 19], ["id", 10], ["LIMIT", 1]]
+  ↳ (pry):4
+  Rendered play_dates/edit.html.erb within layouts/application (245356.6ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 245655ms (Views: 245604.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-14 11:11:05 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.6ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/play_dates/10" for 127.0.0.1 at 2019-02-14 11:11:07 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 62ms (Views: 54.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:11:09 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDogPlayDate Load (0.3ms)[0m  [1m[34mSELECT "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/edit.html.erb:20
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 19], ["id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/edit.html.erb:22
+  Rendered play_dates/edit.html.erb within layouts/application (9133.6ms)
+Completed 500 Internal Server Error in 9149ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Dog with 'id'=10 [WHERE "dogs"."user_id" = ?]):
+  
+app/views/play_dates/edit.html.erb:22:in `block (2 levels) in _app_views_play_dates_edit_html_erb__274696041672792564_70276158129980'
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276158129980'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276158129980'
+Started GET "/play_dates/10" for 127.0.0.1 at 2019-02-14 11:12:23 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:12:24 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  Rendered play_dates/edit.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `dog_play_dates' for :current_user:Symbol):
+    17:     <%= f.label :dog_limit %><br>
+    18:     <%= f.number_field :dog_limit %><br>
+    19: 
+    20:     <%= f.fields_for :current_user.dog_play_dates do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+  
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276172119680'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276172119680'
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:12:40 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  Rendered play_dates/edit.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `dogs' for :current_user:Symbol):
+    17:     <%= f.label :dog_limit %><br>
+    18:     <%= f.number_field :dog_limit %><br>
+    19: 
+    20:     <%= f.fields_for :current_user.dogs.dog_play_dates do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+  
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276230432200'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276230432200'
+Started GET "/play_dates/" for 127.0.0.1 at 2019-02-14 11:14:23 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (1.8ms)
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/play_dates/10" for 127.0.0.1 at 2019-02-14 11:14:26 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 52ms (Views: 46.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:14:27 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? LIMIT ?[0m  [["user_id", 19], ["LIMIT", 11]]
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered play_dates/edit.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `dog_play_dates' for #<Dog::ActiveRecord_Associations_CollectionProxy:0x00007fd4e9be4978>):
+    17:     <%= f.label :dog_limit %><br>
+    18:     <%= f.number_field :dog_limit %><br>
+    19: 
+    20:     <%= f.fields_for :dog_play_dates, @dogs.dog_play_dates do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+  
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276222671680'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276222671680'
+Started GET "/play_dates/10/" for 127.0.0.1 at 2019-02-14 11:14:51 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:14:52 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 19]]
+  ↳ app/views/play_dates/edit.html.erb:19
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:15:52 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."user_id" = ?[0m  [["user_id", 19], ["user_id", 19]]
+  ↳ app/views/play_dates/edit.html.erb:20
+  Rendered play_dates/edit.html.erb within layouts/application (2508.9ms)
+Completed 500 Internal Server Error in 2521ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `dog_id' for #<Dog:0x00007fd4eb829bd8>):
+    20:     <%= f.fields_for :dog_play_dates, @dogs.where(user_id: current_user.id) do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+    24: 
+    25:       <%= d.label :note %><br>
+    26:       <%= d.text_area :note %><br>
+  
+app/views/play_dates/edit.html.erb:23:in `block (2 levels) in _app_views_play_dates_edit_html_erb__274696041672792564_70276222866920'
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276222866920'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276222866920'
+Started GET "/play_dates/" for 127.0.0.1 at 2019-02-14 11:16:04 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/index.html.erb:4
+  Rendered play_dates/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.0ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/play_dates/10" for 127.0.0.1 at 2019-02-14 11:16:06 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 47.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:16:07 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.3ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."user_id" = ?[0m  [["user_id", 19], ["user_id", 19]]
+  ↳ app/views/play_dates/edit.html.erb:20
+  Rendered play_dates/edit.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `dog_id' for #<Dog:0x00007fd4e2ae95e8>):
+    20:     <%= f.fields_for :dog_play_dates, @dogs.where(user_id: current_user.id) do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+    24: 
+    25:       <%= d.label :note %><br>
+    26:       <%= d.text_area :note %><br>
+  
+app/views/play_dates/edit.html.erb:23:in `block (2 levels) in _app_views_play_dates_edit_html_erb__274696041672792564_70276167008700'
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276167008700'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276167008700'
+Started GET "/play_dates/10" for 127.0.0.1 at 2019-02-14 11:18:22 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:19
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 10]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mDogPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 10], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mDogPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 22], ["play_date_id", 10], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered play_dates/show.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/play_dates/10/edit" for 127.0.0.1 at 2019-02-14 11:18:23 -0600
+Processing by PlayDatesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendering play_dates/edit.html.erb within layouts/application
+  [1m[36mDog Load (0.5ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ? AND "dogs"."user_id" = ?[0m  [["play_date_id", 10], ["user_id", 19]]
+  ↳ app/views/play_dates/edit.html.erb:20
+  Rendered play_dates/edit.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 62ms (Views: 55.5ms | ActiveRecord: 1.0ms)
+
+
+  Rendered play_dates/edit.html.erb within layouts/application (262951.1ms)
+Completed 500 Internal Server Error in 262968ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `dog_play_dates' for #<Dog::ActiveRecord_Associations_CollectionProxy:0x00007fd4e5697028>):
+    17:     <%= f.label :dog_limit %><br>
+    18:     <%= f.number_field :dog_limit %><br>
+    19: 
+    20:     <%= f.fields_for :dog_play_dates, @playdate.dogs.where(user_id: current_user.id) do |d| %>
+    21: 
+    22:       <%= d.label :dog_id %><br>
+    23:       <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
+  
+app/views/play_dates/edit.html.erb:20:in `block in _app_views_play_dates_edit_html_erb__274696041672792564_70276165068460'
+app/views/play_dates/edit.html.erb:4:in `_app_views_play_dates_edit_html_erb__274696041672792564_70276165068460'

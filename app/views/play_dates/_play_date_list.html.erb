@@ -1,0 +1,7 @@
+<ul>
+  <% playdates.each do |p| %>
+    <li>
+      <a href="<%= play_date_path(p) %>"><%= p.name %></a><%= " - #{p.location}, #{p.format_date}, #{p.format_time}"  %>
+    </li>
+  <% end %>
+</ul>

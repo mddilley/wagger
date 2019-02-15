@@ -7,7 +7,7 @@
   Dog Participants: <br>
   <ol>
     <% @playdate.dogs.each do |d| %>
-      <li><%= link_to d.name, user_dog_path(d.user, d) %>
+      <li><%= link_to d.name, user_dog_path(d.user, d) %><%= link_to 'Remove my dog', dog_play_date_path(DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id)), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-sm" if current_user.dogs.include?(d)%>
           <p>Note: <%= DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id).note %></p>
       </li>
     <% end %>

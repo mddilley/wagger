@@ -13,11 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ /* body */
  body, html {
    height: 100%;
    font-family: 'Source Sans Pro', sans-serif !important;
    font-weight: bold !important;
  }
+
+ /* background and hr */
 
  .bg {
    background-image: linear-gradient(black, transparent), url(/images/puppy.jpg);
@@ -27,8 +31,17 @@
    background-size: cover;
  }
 
+ hr.fade {
+   border: 0;
+   height: 1px;
+   background: #333;
+   background-image: linear-gradient(to right, #ccc, #333, #000);
+ }
+
+ /* lists */
+
  ul li a, ol li a {
-   color: rgb(41,162,182) !important;
+   color: rgb(253,193,57) !important;
  }
 
  ol {
@@ -41,12 +54,21 @@
    padding-left: 0 !important;
  }
 
- hr.fade {
-   border: 0;
-   height: 1px;
-   background: #333;
-   background-image: linear-gradient(to right, #ccc, #333, #000);
+ /* links */
+
+ .nav-link {
+ color: rgb(41,162,182) !important;
  }
+
+ .red-link {
+   color: rgb(216m54,72) !important;
+ }
+
+ #white-fb {
+   color: white !important;
+ }
+
+ /* errors */
 
  .field_with_errors {
    border: linear-gradient(to right, #F00, transparent, transparent);
@@ -54,8 +76,4 @@
 
  .error_message {
    color: red;
- }
-
- #white-fb {
-   color: white !important;
  }

@@ -1,0 +1,22 @@
+<div class="col-sm-4 text-center">
+    <% if complete == true %>
+      <h2 class="yellow-text"><%= dog.name %></h2>
+    <% end %>
+    <%= image_tag("#{dog_image(dog)}", class: "dog-img") %>
+
+    <div class="<%= div_class %>">
+      <% if complete == false %>
+        <h3><a href="<%= user_dog_path(current_user, dog) %>" class="yellow-link"><%= dog.name %></a></h3>
+      <% end %>
+      Age: <%= dog.age %><br>
+      Weight: <%= dog.weight %><br>
+      Breed: <%= dog.breed %><br>
+      Sex: <%= dog.sex %><br>
+      <% if complete == true %>
+        Fixed? <%= dog.fixed_to_string %><br>
+        How friendly? <%= dog.friendly_rating %><br>
+        How aggressive? <%= dog.aggressive_rating %><br>
+      <% end %>
+    </div>
+
+</div>

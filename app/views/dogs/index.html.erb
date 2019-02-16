@@ -7,19 +7,9 @@
         <div class="row">
 
       <% end %>
-      <div class="col-sm-4 text-center">
 
-          <%= image_tag("#{dog_image(dog)}", class: "dog-img") %>
+        <%= render partial: "dog_img_about", locals: {dog: dog, div_class: "overlay", complete: false} %>
 
-          <div class="overlay">
-            <h3><a href="<%= user_dog_path(current_user, dog) %>" class="yellow-link"><%= dog.name %></a></h3>
-            Age: <%= dog.age %><br>
-            Weight: <%= dog.weight %><br>
-            Breed: <%= dog.breed %><br>
-            Sex: <%= dog.sex %><br>
-          </div>
-
-      </div>
       <% if (i + 1) % 3 == 0  %>
 
       </div>

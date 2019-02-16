@@ -33,9 +33,9 @@
 
  hr.fade {
    border: 0;
-   height: 1px;
+   height: 3px;
    background: #333;
-   background-image: linear-gradient(to right, #ccc, #333, #000);
+   background-image: linear-gradient(#ccc, #333, #000);
  }
 
  /* lists */
@@ -71,7 +71,7 @@
  /* errors */
 
  .field_with_errors {
-   border: linear-gradient(to right, #F00, transparent, transparent);
+   background-color: red;
  }
 
  .error_message {

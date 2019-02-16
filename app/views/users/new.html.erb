@@ -23,19 +23,9 @@
       <%= f.password_field :password_confirmation, class: "form-control-lg" %><br><br>
       Enter details about your dog (or wait until later).<br><br>
       <%= f.fields_for :dogs do |dog| %>
-        <%= dog.label :name %><br>
-        <%= dog.text_field :name %><br>
-
-        <%= dog.label :sex %><br>
-        <div class="form-check">
-
-          <%= dog.radio_button "sex", "Male", class: "form-check-input"  %>
-          <%= dog.label "Male", class: "form-check-label" %><br>
-          <%= dog.radio_button "sex", "Female", class: "form-check-input"  %>
-          <%= dog.label "Female", class: "form-check-label" %>
-        </div><br>
+        <%= render partial: "dogs/new_dog_form", locals: {f: dog, complete: false} %>
       <% end %>
-
+      
       <%= f.submit "Sign Up", class: "btn btn-success btn-lg" %>
     <% end %>
   </div>

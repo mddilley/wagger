@@ -4,28 +4,13 @@
   <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
 
   <%= form_for @playdate, url: play_dates_path do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
 
-    <%= f.label :location %><br>
-    <%= f.text_field :location %><br>
-
-    <%= f.label :date %><br>
-    <%= f.date_field :date %><br>
-
-    <%= f.label :time %><br>
-    <%= f.time_field :time %><br>
-
-    <%= f.label :dog_limit %><br>
-    <%= f.number_field :dog_limit %><br>
+    <%= render partial: "play_date_fields", locals: {f: f} %>
 
     Choose one of your dogs to add to the playdate.<br>
     <%= f.fields_for :dog_play_dates do |d| %>
-      <%= d.label :dog_id %><br>
-      <%= d.collection_select :dog_id, @dogs, :id, :name %><br>
 
-      <%= d.label :note %><br>
-      <%= d.text_area :note %><br>
+      <%= render partial: "play_date_dog_fields", locals: {d: d} %>
 
     <% end %>
 

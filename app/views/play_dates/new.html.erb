@@ -1,15 +1,7 @@
 <div class="container text-left text-light align-middle form-group">
   <h3>Enter your dog's details below.</h3>
 
-  <% if @playdate.errors.any? %>
-    <div class="error_message">
-      <ul>
-      <% @playdate.errors.full_messages.each do |msg| %>
-        <li>* <%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
 
   <%= form_for @playdate, url: play_dates_path do |f| %>
     <%= f.label :name %><br>

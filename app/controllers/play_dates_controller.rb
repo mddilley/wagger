@@ -9,7 +9,6 @@ class PlayDatesController < ApplicationController
   end
 
   def create
-    binding.pry
     @playdate = PlayDate.new(play_date_params)
     @dogs = current_user.dogs
     if @playdate.save

@@ -1,10 +1,8 @@
-<div class="container text-left text-light align-middle form-group">
-  <h3>Modify your dog's details below.</h3>
+<h3>Modify your dog's details below.</h3>
 
-  <%= form_for @dog, url: user_dog_path(current_user, @dog) do |f| %>
+<%= form_for @dog, url: user_dog_path(current_user, @dog) do |f| %>
 
-    <%= render partial: "new_dog_form", locals: {f: f, complete: true}%>
+  <%= render partial: "new_dog_form", locals: {f: f, complete: true}%>
 
-    <%= f.submit "Update Dog", class: "btn btn-success btn-lg" %>
-  <% end %>
-</div>
+  <%= f.submit "Update Dog", class: "btn btn-success btn-lg" %>
+<% end %>

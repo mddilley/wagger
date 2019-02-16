@@ -1,12 +1,10 @@
-<div class="container text-left text-light align-middle form-group">
-  <h3>Enter your dog's details below.</h3>
+<h3>Enter your dog's details below.</h3>
 
-  <%= render partial: "layouts/show_errors", locals: {model: @dog} %>
+<%= render partial: "layouts/show_errors", locals: {model: @dog} %>
 
-  <%= form_for @dog, url: user_dogs_path do |f| %>
+<%= form_for @dog, url: user_dogs_path do |f| %>
 
-    <%= render partial: "new_dog_form", locals: {f: f, complete: true}%>
+  <%= render partial: "new_dog_form", locals: {f: f, complete: true}%>
 
-    <%= f.submit "Add Dog", class: "btn btn-success btn-lg" %>
-  <% end %>
-</div>
+  <%= f.submit "Add Dog", class: "btn btn-success btn-lg" %>
+<% end %>

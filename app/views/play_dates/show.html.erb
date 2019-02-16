@@ -1,17 +1,15 @@
-<div class="container text-left text-light align-middle">
-  Name: <%= @playdate.name %><br>
-  Location: <%= @playdate.location %><br>
-  Date: <%= @playdate.format_date %><br>
-  Time: <%= @playdate.format_time %><br>
-  Dog Limit: <%= @playdate.dog_limit %><br>
-  Dog Participants: <br>
-  <ol>
-    <% @playdate.dogs.each do |d| %>
-      <li><%= link_to d.name, user_dog_path(d.user, d) %><%= link_to ' <i class="far fa-times-circle"></i>'.html_safe, dog_play_date_path(DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id)), data: { confirm: "Are you sure you want to remove #{d.name} from this playdate?" }, method: :delete, class: "red-link" if current_user.dogs.include?(d)%>
-          <p>Note: <%= DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id).note %></p>
-      </li>
-    <% end %>
-  </ol>
+Name: <%= @playdate.name %><br>
+Location: <%= @playdate.location %><br>
+Date: <%= @playdate.format_date %><br>
+Time: <%= @playdate.format_time %><br>
+Dog Limit: <%= @playdate.dog_limit %><br>
+Dog Participants: <br>
+<ol>
+  <% @playdate.dogs.each do |d| %>
+    <li><%= link_to d.name, user_dog_path(d.user, d) %><%= link_to ' <i class="far fa-times-circle"></i>'.html_safe, dog_play_date_path(DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id)), data: { confirm: "Are you sure you want to remove #{d.name} from this playdate?" }, method: :delete, class: "red-link" if current_user.dogs.include?(d)%>
+        <p>Note: <%= DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id).note %></p>
+    </li>
+  <% end %>
+</ol>
 
-  <%= render partial: "update_cancel_play_date", locals: {playdate: @playdate} %>
-</div>
+<%= render partial: "update_cancel_play_date", locals: {playdate: @playdate} %>

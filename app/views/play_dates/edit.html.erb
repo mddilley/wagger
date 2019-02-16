@@ -1,25 +1,23 @@
-<div class="container text-left text-light align-middle form-group">
-  <h3>Enter your dog's details below.</h3>
+<h3>Enter your dog's details below.</h3>
 
-  <%= form_for @playdate, url: play_date_path(@playdate) do |f| %>
+<%= form_for @playdate, url: play_date_path(@playdate) do |f| %>
 
-    <%= render partial: "play_date_fields", locals: {f: f} %>
+  <%= render partial: "play_date_fields", locals: {f: f} %>
 
-    <%= f.fields_for :dog_play_dates do |d| %>
+  <%= f.fields_for :dog_play_dates do |d| %>
 
-      <% if d.object.id == nil %>
-        <u>Add a new participant</u><br>
+    <% if d.object.id == nil %>
+      <u>Add a new participant</u><br>
 
-          <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+        <%= render partial: "play_date_dog_fields", locals: {d: d} %>
 
-      <% elsif current_user.dogs.include?(d.object.dog) %>
-        <u>Edit your existing participants</u><br>
+    <% elsif current_user.dogs.include?(d.object.dog) %>
+      <u>Edit your existing participants</u><br>
 
-          <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+        <%= render partial: "play_date_dog_fields", locals: {d: d} %>
 
-      <% end %>
     <% end %>
-    <br>
-    <%= f.submit "Update Playdate", class: "btn btn-success btn-lg" %>
   <% end %>
-</div>
+  <br>
+  <%= f.submit "Update Playdate", class: "btn btn-success btn-lg" %>
+<% end %>

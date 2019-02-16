@@ -1,9 +1,7 @@
-<div class="container text-left text-light align-middle">
-  <h1><strong>Welcome to Wagger, <%= current_user.name %>.</strong></h1>
-  <hr class="fade">
-  <p>Wagger provides a way to connect with other dog owners and to let all of our fuzzy friends to play!</p>
-  <p>Start by adding your dogs and joining an existing playdate. You can also create a playdate of your own!</p><br>
+<h1><strong>Welcome to Wagger, <%= current_user.name %>.</strong></h1>
+<hr class="fade">
+<p>Wagger provides a way to connect with other dog owners and to let all of our fuzzy friends to play!</p>
+<p>Start by adding your dogs and joining an existing playdate. Or, create a playdate of your own!</p><br>
 
-  <h5><strong>Newest playdates</strong></h5>
-  <%= render partial: "play_dates/play_date_list", locals: {playdates: PlayDate.last_five} %>
-</div>
+<h5><strong>Newest playdates</strong></h5>
+<%= render partial: "play_dates/play_date_list", locals: {playdates: PlayDate.last_five} %>

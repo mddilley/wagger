@@ -1,21 +1,19 @@
-<div class="container text-left text-light align-middle form-group">
-  <h3>Enter your dog's details below.</h3>
+<h3>Enter your dog's details below.</h3>
 
-  <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
+<%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
 
-  <%= form_for @playdate, url: play_dates_path do |f| %>
+<%= form_for @playdate, url: play_dates_path do |f| %>
 
-    <%= render partial: "play_date_fields", locals: {f: f} %>
+  <%= render partial: "play_date_fields", locals: {f: f} %>
 
-    Choose one of your dogs to add to the playdate.<br>
-    <%= f.fields_for :dog_play_dates do |d| %>
+  Choose one of your dogs to add to the playdate.<br>
+  <%= f.fields_for :dog_play_dates do |d| %>
 
-      <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+    <%= render partial: "play_date_dog_fields", locals: {d: d} %>
 
-    <% end %>
-
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-
-    <%= f.submit "Create Playdate" %>
   <% end %>
-</div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.submit "Create Playdate" %>
+<% end %>

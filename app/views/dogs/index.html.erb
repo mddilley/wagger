@@ -1,16 +1,13 @@
-<div class="container text-left text-light align-middle">
-  <%= link_to "Add a dog", new_user_dog_path(current_user), class: "btn btn-success btn-lg" %><br><br>
+<%= link_to "Add a dog", new_user_dog_path(current_user), class: "btn btn-success btn-lg" %><br><br>
 
-    <% @dogs.all.each_with_index do |dog, i| %>
-      <% if div_open_freq(i) %>
-        <div class="row">
-      <% end %>
-
-        <%= render partial: "dog_img_about", locals: {dog: dog, div_class: "overlay", complete: false} %>
-
-      <% if div_close_freq(i)  %>
-        </div><br>
-      <% end %>
+  <% @dogs.all.each_with_index do |dog, i| %>
+    <% if div_open_freq(i) %>
+      <div class="row">
     <% end %>
 
-</div>
+      <%= render partial: "dog_img_about", locals: {dog: dog, div_class: "overlay", complete: false} %>
+
+    <% if div_close_freq(i)  %>
+      </div><br>
+    <% end %>
+  <% end %>

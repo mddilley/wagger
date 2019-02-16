@@ -1,31 +1,29 @@
-<div class="container text-left text-light align-middle">
-  <h3>Update Your Profile</h3>
+<h3>Update Your Profile</h3>
 
-  <%= form_for @user do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+<%= form_for @user do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
 
-    <%= f.label :email %><br>
-    <%= f.email_field :email %><br>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %><br>
 
-    <%= f.label :age %><br>
-    <%= f.text_field :age %><br>
+  <%= f.label :age %><br>
+  <%= f.text_field :age %><br>
 
-    <%= f.label :city %><br>
-    <%= f.text_field :city %><br>
+  <%= f.label :city %><br>
+  <%= f.text_field :city %><br>
 
-    <%= f.label :state %><br>
-    <%= f.text_field :state %><br>
+  <%= f.label :state %><br>
+  <%= f.text_field :state %><br>
 
-    <%= f.label :hobbies %><br>
-    <%= f.text_area :hobbies %><br><br>
-    <p>Enter a new password to replace your current password.</p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
+  <%= f.label :hobbies %><br>
+  <%= f.text_area :hobbies %><br><br>
+  <p>Enter a new password to replace your current password.</p>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
 
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br><br>
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %><br><br>
 
-    <%= f.submit "Update Profile", class: "btn btn-success btn-lg" %>
-  <% end %>
-</div>
+  <%= f.submit "Update Profile", class: "btn btn-success btn-lg" %>
+<% end %>

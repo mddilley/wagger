@@ -1,25 +1,23 @@
-<div class="container text-left text-light align-middle">
-  <h3>Sign up to start planning your dog dates!</h3><br>
-    <%= render partial: "layouts/show_errors", locals: {model: @user} %>
+<h3>Sign up to start planning your dog dates!</h3><br>
+  <%= render partial: "layouts/show_errors", locals: {model: @user} %>
 
-    <%= form_for @user do |f| %>
-      <%= f.label :name %><br>
-      <%= f.text_field :name, class: "form-control-lg" %><br>
+  <%= form_for @user do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control-lg" %><br>
 
-      <%= f.label :email %><br>
-      <%= f.email_field :email, class: "form-control-lg" %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: "form-control-lg" %><br>
 
-      <%= f.label :password %><br>
-      <%= f.password_field :password, class: "form-control-lg" %><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "form-control-lg" %><br>
 
-      <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation, class: "form-control-lg" %><br><br>
-      Enter details about your dog (or wait until later).<br><br>
-      <%= f.fields_for :dogs do |dog| %>
-        <%= render partial: "dogs/new_dog_form", locals: {f: dog, complete: false} %>
-      <% end %>
-
-      <%= f.submit "Sign Up", class: "btn btn-success btn-lg" %>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: "form-control-lg" %><br><br>
+    Enter details about your dog (or wait until later).<br><br>
+    <%= f.fields_for :dogs do |dog| %>
+      <%= render partial: "dogs/new_dog_form", locals: {f: dog, complete: false} %>
     <% end %>
-  </div>
+
+    <%= f.submit "Sign Up", class: "btn btn-success btn-lg" %>
+  <% end %>
 </div>

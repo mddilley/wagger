@@ -1,4 +1,2 @@
-<div class="container text-left text-light align-middle">
-  <%= render partial: "play_date_list", locals: {playdates: @playdates} %>
-  <%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg" %>
-</div>
+<%= render partial: "play_date_list", locals: {playdates: @playdates} %>
+<%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg" %>

@@ -1,16 +1,15 @@
-Name: <br>
-<%= @user.name %><br>
+Name: <%= @user.name %><br>
 
-Email: <br>
-<%= @user.email %><br>
+Age: <%= @user.age %><br>
 
-City: <br>
-<%= @user.city %><br>
+Email: <%= @user.email %><br>
 
-State: <br>
-<%= @user.state %><br>
+City: <%= @user.city %><br>
 
-Hobbies: <br>
-<%= @user.hobbies %><br><br>
+State: <%= @user.state %><br>
 
-<a class="btn btn-success btn-lg" href="<%= edit_user_path(@user) %>" role="button">Update Profile</a>
+Hobbies: <%= @user.hobbies %><br><br>
+
+<%= link_to "Update Profile", edit_user_path(@user), class: "btn btn-success btn-lg" %>
+
+git commit -m "Modify and reformat /user/show view to display age att

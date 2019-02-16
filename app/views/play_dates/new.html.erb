@@ -9,7 +9,7 @@
   Choose one of your dogs to add to the playdate.<br>
   <%= f.fields_for :dog_play_dates do |d| %>
 
-    <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+    <%= render partial: "play_date_dog_fields", locals: {d: d, show_blank: false} %>
 
   <% end %>
 

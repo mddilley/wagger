@@ -8,14 +8,14 @@
       <% if complete == false %>
         <h3><a href="<%= user_dog_path(current_user, dog) %>" class="yellow-link"><%= dog.name %></a></h3>
       <% end %>
-      Age: <%= dog.age %><br>
-      Weight: <%= dog.weight %><br>
-      Breed: <%= dog.breed %><br>
-      Sex: <%= dog.sex %><br>
+      <%= dog.age %> years old<br>
+      <%= dog.weight %> lbs.<br>
+      <%= dog.breed %><br>
+      <%= dog.sex %><br>
       <% if complete == true %>
         Fixed? <%= dog.fixed_to_string %><br>
-        How friendly?
 
+        How friendly?<br>
         <% dog.friendly_rating.times do %>
         <i class="fas fa-smile yellow-text"></i>
         <% end %>
@@ -23,7 +23,7 @@
         <i class="fas fa-smile invert"></i>
         <% end %><br>
 
-        How aggressive?
+        How aggressive?<br>
         <% dog.aggressive_rating.times do %>
         <i class="fas fa-angry red-text"></i>
         <% end %>

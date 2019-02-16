@@ -1,12 +1,12 @@
 <% dogs.all.each_with_index do |dog, i| %>
   <% if div_open_freq(i) %>
-    <div class="row">
+    <div class="row mb-4">
   <% end %>
   <% @dog = dog %>
 
     <%= yield(@dog) %>
 
   <% if div_close_freq(i)  %>
-    </div><br>
+    </div>
   <% end %>
 <% end %>

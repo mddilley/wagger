@@ -62761,3 +62761,251 @@ Processing by DogsController#index as HTML
 Completed 200 OK in 62ms (Views: 54.7ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/users/14/dogs/8" for 127.0.0.1 at 2019-02-16 12:56:23 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/michaeldilley/.rbenv/versions/2.5.3/bin/thin:23
+Processing by DogsController#show as HTML
+  Parameters: {"user_id"=>"14", "id"=>"8"}
+  [1m[36mDog Load (0.5ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/show.html.erb within layouts/application
+  Rendered dogs/_dog_img_about.html.erb (140.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:6
+  [1m[36mCACHE Dog Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:7
+  Rendered dogs/show.html.erb within layouts/application (168.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 263ms (Views: 220.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/14" for 127.0.0.1 at 2019-02-16 12:56:27 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 61ms (Views: 54.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/play_dates" for 127.0.0.1 at 2019-02-16 12:56:28 -0600
+Processing by PlayDatesController#index as HTML
+  Rendering play_dates/index.html.erb within layouts/application
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT "play_dates".* FROM "play_dates"[0m
+  ↳ app/views/play_dates/_play_date_list.html.erb:2
+  Rendered play_dates/_play_date_list.html.erb (17.6ms)
+  Rendered play_dates/index.html.erb within layouts/application (20.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 89ms (Views: 75.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/play_dates/7" for 127.0.0.1 at 2019-02-16 12:56:30 -0600
+Processing by PlayDatesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlayDate Load (0.2ms)[0m  [1m[34mSELECT  "play_dates".* FROM "play_dates" WHERE "play_dates"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/play_dates_controller.rb:22
+  Rendering play_dates/show.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dog_play_dates" ON "dogs"."id" = "dog_play_dates"."dog_id" WHERE "dog_play_dates"."play_date_id" = ?[0m  [["play_date_id", 7]]
+  ↳ app/views/play_dates/show.html.erb:9
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 29], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:10
+  [1m[36mDogPlayDate Load (0.1ms)[0m  [1m[34mSELECT  "dog_play_dates".* FROM "dog_play_dates" WHERE "dog_play_dates"."dog_id" = ? AND "dog_play_dates"."play_date_id" = ? LIMIT ?[0m  [["dog_id", 29], ["play_date_id", 7], ["LIMIT", 1]]
+  ↳ app/views/play_dates/show.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/play_dates/_update_cancel_play_date.html.erb:2
+  Rendered play_dates/_update_cancel_play_date.html.erb (2.6ms)
+  Rendered play_dates/show.html.erb within layouts/application (40.2ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+Completed 200 OK in 89ms (Views: 84.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/22/dogs/29" for 127.0.0.1 at 2019-02-16 12:56:32 -0600
+Processing by DogsController#show as HTML
+  Parameters: {"user_id"=>"22", "id"=>"29"}
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/show.html.erb within layouts/application
+  Rendered dogs/_dog_img_about.html.erb (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 29], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:6
+  [1m[36mCACHE Dog Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 29], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:7
+  Rendered dogs/show.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 47ms (Views: 43.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-16 12:59:47 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:6
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/_dog_img_about.html.erb (2.4ms)
+  Rendered dogs/_dog_img_about.html.erb (1.5ms)
+  Rendered dogs/_dog_img_about.html.erb (0.5ms)
+  Rendered dogs/_dog_img_about.html.erb (0.4ms)
+  Rendered dogs/_dog_img_about.html.erb (0.4ms)
+  Rendered dogs/index.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 64ms (Views: 57.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/14/dogs/8" for 127.0.0.1 at 2019-02-16 13:02:43 -0600
+Processing by DogsController#show as HTML
+  Parameters: {"user_id"=>"14", "id"=>"8"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/show.html.erb within layouts/application
+  Rendered dogs/_dog_img_about.html.erb (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:6
+  [1m[36mCACHE Dog Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:7
+  Rendered dogs/show.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+Completed 200 OK in 64ms (Views: 58.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/14/dogs/10" for 127.0.0.1 at 2019-02-16 13:02:52 -0600
+Processing by DogsController#show as HTML
+  Parameters: {"user_id"=>"14", "id"=>"10"}
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/show.html.erb within layouts/application
+  Rendered dogs/_dog_img_about.html.erb (3.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 10], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:6
+  [1m[36mCACHE Dog Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 10], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:7
+  Rendered dogs/show.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/14/dogs/8" for 127.0.0.1 at 2019-02-16 13:04:04 -0600
+Processing by DogsController#show as HTML
+  Parameters: {"user_id"=>"14", "id"=>"8"}
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/show.html.erb within layouts/application
+  Rendered dogs/_dog_img_about.html.erb (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:6
+  [1m[36mCACHE Dog Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "dogs" WHERE "dogs"."user_id" = ? AND "dogs"."id" = ? LIMIT ?[0m  [["user_id", 14], ["id", 8], ["LIMIT", 1]]
+  ↳ app/views/dogs/show.html.erb:7
+  Rendered dogs/show.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/14/dogs/8/edit" for 127.0.0.1 at 2019-02-16 13:04:05 -0600
+Processing by DogsController#edit as HTML
+  Parameters: {"user_id"=>"14", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:31
+  Rendering dogs/edit.html.erb within layouts/application
+  Rendered dogs/_new_dog_form.html.erb (373.4ms)
+  Rendered dogs/edit.html.erb within layouts/application (378.6ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 421ms (Views: 416.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-16 13:05:10 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:6
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/_dog_img_about.html.erb (3.2ms)
+  Rendered dogs/_dog_img_about.html.erb (1.9ms)
+  Rendered dogs/_dog_img_about.html.erb (0.7ms)
+  Rendered dogs/_dog_img_about.html.erb (0.5ms)
+  Rendered dogs/_dog_img_about.html.erb (0.4ms)
+  Rendered dogs/index.html.erb within layouts/application (26.6ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 69ms (Views: 60.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-16 13:05:19 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:6
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/_dog_img_about.html.erb (1.4ms)
+  Rendered dogs/_dog_img_about.html.erb (0.7ms)
+  Rendered dogs/_dog_img_about.html.erb (0.3ms)
+  Rendered dogs/_dog_img_about.html.erb (0.3ms)
+  Rendered dogs/_dog_img_about.html.erb (0.3ms)
+  Rendered dogs/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/14/dogs" for 127.0.0.1 at 2019-02-16 13:05:21 -0600
+Processing by DogsController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/dogs_controller.rb:6
+  Rendering dogs/index.html.erb within layouts/application
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 14]]
+  ↳ app/views/dogs/index.html.erb:4
+  Rendered dogs/_dog_img_about.html.erb (1.6ms)
+  Rendered dogs/_dog_img_about.html.erb (0.9ms)
+  Rendered dogs/_dog_img_about.html.erb (0.3ms)
+  Rendered dogs/_dog_img_about.html.erb (0.4ms)
+  Rendered dogs/_dog_img_about.html.erb (0.4ms)
+  Rendered dogs/index.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 48ms (Views: 44.1ms | ActiveRecord: 0.5ms)
+
+

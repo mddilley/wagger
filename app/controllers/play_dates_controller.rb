@@ -1,5 +1,6 @@
 class PlayDatesController < ApplicationController
 
+  before_action :require_login
   before_action :authorized?, only: [:destroy]
 
   def new

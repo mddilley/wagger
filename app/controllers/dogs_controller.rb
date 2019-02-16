@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
 
+  before_action :require_login
   before_action :authorized?, only: [:edit, :update, :destroy, :index, :new, :create]
 
   def index

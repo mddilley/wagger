@@ -27,11 +27,15 @@ class SessionsController < ApplicationController
 
     def find_or_create_user_from_facebook
       User.find_or_create_by(email: auth['info']['email']) do |u|
-        u.name = auth['info']['name'].split(" ")[0]
-        u.email = auth['info']['email']
-        u.password = auth['credentials']['token'][0..9]
-        u.password_confirmation = auth['credentials']['token'][0..9]
+        assign_facebook_attributes(u)
       end
+    end
+
+    def assign_facebook_attributes(user)
+      u.name = auth['info']['name'].split(" ")[0]
+      u.email = auth['info']['email']
+      u.password = auth['credentials']['token'][0..9]
+      u.password_confirmation = auth['credentials']['token'][0..9]
     end
 
     def authenticate(user)

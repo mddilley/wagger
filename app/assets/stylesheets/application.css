@@ -57,7 +57,7 @@
  /* links */
 
  .nav-link {
- color: rgb(41,162,182) !important;
+   color: rgb(41,162,182) !important;
  }
 
  .red-link {
@@ -68,6 +68,10 @@
    color: white !important;
  }
 
+ .yellow-link {
+   color: rgb(253,193,57) !important;
+ }
+
  /* errors */
 
  .field_with_errors {
@@ -76,4 +80,25 @@
 
  .error_message {
    color: red;
+ }
+
+ /* img */
+
+ .dog-img {
+   height: 100%;
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+
+ }
+
+ /* text */
+
+ .overlay {
+   position: absolute;
+   top: 50%;
+   left: 15px;
+   right: 15px;
+   bottom: 0;
+   background-image: linear-gradient(to top, #111, transparent);
  }

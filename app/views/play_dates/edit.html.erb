@@ -9,12 +9,12 @@
     <% if d.object.id == nil %>
       <u>Add a new participant</u><br>
 
-        <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+        <%= render partial: "play_date_dog_fields", locals: {d: d, show_blank: true} %>
 
     <% elsif current_user.dogs.include?(d.object.dog) %>
       <u>Edit your existing participants</u><br>
 
-        <%= render partial: "play_date_dog_fields", locals: {d: d} %>
+        <%= render partial: "play_date_dog_fields", locals: {d: d, show_blank: false} %>
 
     <% end %>
   <% end %>

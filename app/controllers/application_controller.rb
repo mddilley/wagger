@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
-  def login(user)
-    session[:id] = user.id
-  end
-
   def logged_in?
     session[:id]
   end
@@ -14,6 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+    def login(user)
+      session[:id] = user.id
+    end
 
     def require_login
       redirect_to root_path unless session[:id]

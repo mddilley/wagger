@@ -76,11 +76,11 @@
  /* errors */
 
  .field_with_errors {
-   color: red;
+   color: rgb(216,54,72);	
  }
 
  .error_message {
-   color: red;
+   color: rgb(216,54,72);
  }
 
  /* img */
@@ -107,4 +107,12 @@
  .yellow-text {
    color: rgb(253,193,57) !important;
    font-weight: bold;
+ }
+
+ .red-text {
+   color: rgb(216,54,72);
+ }
+
+ .invert {
+   filter: invert(50%);
  }

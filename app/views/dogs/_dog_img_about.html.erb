@@ -14,8 +14,22 @@
       Sex: <%= dog.sex %><br>
       <% if complete == true %>
         Fixed? <%= dog.fixed_to_string %><br>
-        How friendly? <%= dog.friendly_rating %><br>
-        How aggressive? <%= dog.aggressive_rating %><br>
+        How friendly?
+
+        <% dog.friendly_rating.times do %>
+        <i class="fas fa-smile yellow-text"></i>
+        <% end %>
+        <% (10 - (dog.friendly_rating)).times do %>
+        <i class="fas fa-smile invert"></i>
+        <% end %><br>
+
+        How aggressive?
+        <% dog.aggressive_rating.times do %>
+        <i class="fas fa-angry red-text"></i>
+        <% end %>
+        <% (10 - (dog.aggressive_rating)).times do %>
+        <i class="fas fa-angry invert"></i>
+        <% end %><br>
       <% end %>
     </div>
 

@@ -9,4 +9,12 @@ module DogsHelper
     dog.img == nil ? "dogs.png" : dog.img
   end
 
+  def div_open_freq(i)
+    (i % 3 == 0) || i == 0
+  end
+
+  def div_close_freq(i)
+    (i + 1) % 3 == 0
+  end
+
 end

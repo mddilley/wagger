@@ -2,18 +2,14 @@
   <%= link_to "Add a dog", new_user_dog_path(current_user), class: "btn btn-success btn-lg" %><br><br>
 
     <% @dogs.all.each_with_index do |dog, i| %>
-      <% if ((i % 3 == 0) || i == 0) %>
-
+      <% if div_open_freq(i) %>
         <div class="row">
-
       <% end %>
 
         <%= render partial: "dog_img_about", locals: {dog: dog, div_class: "overlay", complete: false} %>
 
-      <% if (i + 1) % 3 == 0  %>
-
-      </div>
-      <br>
+      <% if div_close_freq(i)  %>
+        </div><br>
       <% end %>
     <% end %>
 

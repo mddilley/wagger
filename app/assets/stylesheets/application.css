@@ -91,17 +91,19 @@
    position: relative;
    overflow: hidden;
    background-color: #222;
+   object-fit: cover;
  }
 
  /* text */
 
  .overlay {
    position: absolute;
-   top: 50%;
    left: 15px;
    right: 15px;
+   object-fit: cover;
+   top: 0;
    bottom: 0;
-   background-image: linear-gradient(to top, #111, transparent);
+   background-image: linear-gradient(to top, rgba(1, 1, 1, 1), rgba(1, 1, 1, 0.5), transparent);
  }
 
  .yellow-text {
@@ -123,4 +125,10 @@
 
  .indent-57 {
    margin-left: 57px;
+ }
+
+ .bottom-text {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
  }

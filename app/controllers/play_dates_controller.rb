@@ -36,7 +36,11 @@ class PlayDatesController < ApplicationController
   end
 
   def index
-    @playdates = PlayDate.all
+    if params[:id]
+      @playdates = PlayDate.my_play_dates(params[:id])
+    else
+      @playdates = PlayDate.all
+    end
   end
 
   def destroy

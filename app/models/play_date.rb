@@ -24,6 +24,10 @@ class PlayDate < ApplicationRecord
     order("created_at desc").limit(5)
   end
 
+  def self.my_play_dates(id)
+    where(user_id: id)
+  end
+
   private
 
     def fields_blank?(attr)

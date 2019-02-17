@@ -1,7 +1,7 @@
 <h1><strong>Welcome to Wagger, <%= current_user.name %>.</strong></h1>
 <hr class="fade">
 <p>Wagger provides a way to connect with other dog owners and to let all of our fuzzy friends to play!</p>
-<p>Start by adding your dogs and joining an existing playdate. Or, create a playdate of your own!</p><br>
+<p>Start by adding your dogs and joining an existing playdat, or, create a playdate of your own!</p><br>
 
 <h5><strong>Newest playdates</strong></h5>
 <%= render partial: "play_dates/play_date_list", locals: {playdates: PlayDate.last_five} %>

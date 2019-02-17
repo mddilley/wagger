@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.dogs.build(name: "Enter Dog's Name")
+    @user.dogs.build(name: "Your Dog's Name")
   end
 
   def create

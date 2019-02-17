@@ -11,8 +11,12 @@
       <% else %>
         <i class="fas fa-calendar-check invert"></i>
       <% end %>
-      <a href="<%= play_date_path(p) %>" class="indent-10"><%= p.name %></a><%= " - #{p.location}" %>
-      <p class="indent-57"><%= "#{p.format_date} at #{p.format_time}" %></p>
+      <a href="<%= play_date_path(p) %>" class="indent-10"><%= p.name %></a>
+
+      <p class="indent-57">
+        <i class="fas fa-map-marker-alt"></i><span class="indent-10"><%= "#{p.location}" %><br></span>
+        <i class="fas fa-calendar"></i><span class="indent-10"><%= "#{p.format_date} at #{p.format_time}" %><br></span>
+      </p>
     </li>
   <% end %>
 </ul>

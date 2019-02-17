@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  get '/users/:id/my_play_dates' => 'play_dates#index'
+  get '/users/:id/my_play_dates' => 'play_dates#index', as: :my_play_dates
   resources :users, only: [:new, :create, :show, :update, :edit] do
     resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end

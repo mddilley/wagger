@@ -1,3 +1,5 @@
+<p><%= link_to "Update Profile", edit_user_path(@user), class: "btn btn-success btn-lg" %></p>
+
 Name: <%= @user.name %><br>
 
 Age: <%= @user.age %><br>
@@ -9,5 +11,3 @@ City: <%= @user.city %><br>
 State: <%= @user.state %><br>
 
 Hobbies: <%= @user.hobbies %><br><br>
-
-<%= link_to "Update Profile", edit_user_path(@user), class: "btn btn-success btn-lg" %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get '/users/:id/my_play_dates' => 'play_dates#index', as: :my_play_dates
+  get '/play_dates/past' => 'play_dates#past', as: :past_play_dates
   resources :users, only: [:new, :create, :show, :update, :edit] do
     resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end

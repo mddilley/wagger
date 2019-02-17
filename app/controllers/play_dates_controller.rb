@@ -43,6 +43,11 @@ class PlayDatesController < ApplicationController
     end
   end
 
+  def past
+    @playdates = PlayDate.past
+    render "index"
+  end
+
   def destroy
     PlayDate.find(params[:id]).destroy
     redirect_to play_dates_path

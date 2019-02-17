@@ -76,7 +76,7 @@
  /* errors */
 
  .field_with_errors {
-   color: rgb(216,54,72);	
+   color: rgb(216,54,72);
  }
 
  .error_message {
@@ -115,4 +115,12 @@
 
  .invert {
    filter: invert(50%);
+ }
+
+ .indent-10 {
+   margin-left: 10px;
+ }
+
+ .indent-57 {
+   margin-left: 57px;
  }

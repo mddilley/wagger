@@ -1,7 +1,18 @@
 <ul>
   <% playdates.each do |p| %>
     <li>
-      <a href="<%= play_date_path(p) %>"><%= p.name %></a><%= " - #{p.location}, #{p.format_date}, #{p.format_time}"  %>
+      <% if p.user == current_user %>
+        <i class="fas fa-user-edit"></i>
+      <% else %>
+        <i class="fas fa-user-edit invert"></i>
+      <% end %> &nbsp
+      <% if current_user.play_dates.include?(p) %>
+        <i class="fas fa-calendar-check"></i>
+      <% else %>
+        <i class="fas fa-calendar-check invert"></i>
+      <% end %>
+      <a href="<%= play_date_path(p) %>" class="indent-10"><%= p.name %></a><%= " - #{p.location}" %>
+      <p class="indent-57"><%= "#{p.format_date} at #{p.format_time}" %></p>
     </li>
   <% end %>
 </ul>

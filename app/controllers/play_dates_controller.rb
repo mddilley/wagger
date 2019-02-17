@@ -37,9 +37,9 @@ class PlayDatesController < ApplicationController
 
   def index
     if params[:id]
-      @playdates = PlayDate.my_play_dates(params[:id])
+      @playdates = PlayDate.current.my_play_dates(params[:id])
     else
-      @playdates = PlayDate.all
+      @playdates = PlayDate.current
     end
   end
 

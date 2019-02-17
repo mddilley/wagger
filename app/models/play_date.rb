@@ -12,6 +12,9 @@ class PlayDate < ApplicationRecord
   validates :dog_limit, presence: true
   validates :dog_limit, numericality: true
 
+  scope :current, -> { where('date >= ?', DateTime.now) }
+  scope :past, -> { where('date < ?', DateTime.now) }
+
   def format_date
     date.strftime("%B %d, %Y")
   end

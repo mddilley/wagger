@@ -14,6 +14,7 @@ class PlayDate < ApplicationRecord
 
   scope :current, -> { where('date >= ?', DateTime.now) }
   scope :past, -> { where('date < ?', DateTime.now) }
+  scope :by_date, -> { order('date') }
 
   def format_date
     date.strftime("%B %d, %Y")

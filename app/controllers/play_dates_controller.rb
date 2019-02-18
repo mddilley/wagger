@@ -44,7 +44,7 @@ class PlayDatesController < ApplicationController
   end
 
   def past
-    @playdates = PlayDate.past
+    @playdates = PlayDate.past.by_date
     render "index"
   end
 

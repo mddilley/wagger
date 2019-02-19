@@ -1,7 +1,7 @@
 class PlayDatesController < ApplicationController
 
   before_action :require_login
-  before_action :authorized?, only: [:destroy]
+  before_action :play_date_owner?, only: [:destroy]
 
   def new
     @playdate = PlayDate.new
@@ -49,7 +49,7 @@ class PlayDatesController < ApplicationController
   end
 
   def destroy
-    PlayDate.find(params[:id]).destroy
+    find_play_date.destroy
     redirect_to play_dates_path
   end
 
@@ -57,5 +57,13 @@ class PlayDatesController < ApplicationController
 
     def play_date_params
       params.require(:play_date).permit(:name, :location, :date, :time, :dog_limit, :user_id, dog_play_dates_attributes: [:id, :dog_id, :note])
+    end
+
+    def find_play_date
+      PlayDate.find(params[:id])
+    end
+
+    def play_date_owner?
+      find_play_date.id == current_user.id
     end
 end

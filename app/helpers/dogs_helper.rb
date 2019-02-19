@@ -6,7 +6,7 @@ module DogsHelper
   end
 
   def dog_image(dog)
-    dog.img == nil ? "dogs.png" : dog.img
+    dog.img == nil || dog.img == "" ? "dogs.png" : dog.img
   end
 
   def div_open_freq(i)

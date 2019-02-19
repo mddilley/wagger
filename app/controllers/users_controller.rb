@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.dogs.build(name: "Your Dog's Name")
+    @user.dogs.build
   end
 
   def create
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_path(@user)
     else
+      @user.dogs.build
       render :new
     end
   end

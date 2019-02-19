@@ -22,7 +22,7 @@
   <%= f.number_field :weight, min: 0 %><br>
 
   <%= f.label "Fixed?" %>
-  <%= f.check_box :fixed, {:checked => true}, true, false %><br>
+  <%= f.check_box :fixed, {:checked => false} true, false %><br>
 
   <%= f.label :friendly_rating %><br>
   <%= f.number_field :friendly_rating, in: 1...11 %><br>

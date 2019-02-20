@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to welcome_path
     else
-      authenticate_user(@user)
+      authenticate_user
     end
   end
 
@@ -42,10 +42,10 @@ class SessionsController < ApplicationController
       u.password_confirmation = auth['credentials']['token'][0..9]
     end
 
-    def authenticate_user(user)
+    def authenticate_user
       find_user_by_email
-      if user && user.authenticate(params[:password])
-        login(user)
+      if @user && @user.authenticate(params[:password])
+        login(@user)
         redirect_to welcome_path
       else
         flash[:invalid] = %Q[Please fill all fields with valid input, or visit <a href="#{new_user_path}">Signup</a> to create a new account.]

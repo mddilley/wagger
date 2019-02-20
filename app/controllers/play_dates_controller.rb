@@ -1,7 +1,7 @@
 class PlayDatesController < ApplicationController
 
   before_action :require_login
-  before_action :play_date_owner?, only: [:destroy]
+  before_action :play_date_owner?, only: [:destroy, :edit]
 
   def new
     @playdate = PlayDate.new
@@ -56,7 +56,7 @@ class PlayDatesController < ApplicationController
     end
 
     def play_date_owner?
-      find_play_date.id == current_user.id
+      redirect_to root_path unless find_play_date.id == current_user.id
     end
 
     def current_user_dogs

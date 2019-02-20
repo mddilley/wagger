@@ -1,3 +1,5 @@
+<%= render partial: "update_cancel_play_date", locals: {playdate: @playdate} %>
+
 Name: <%= @playdate.name %><br>
 Location: <%= @playdate.location %><br>
 Date: <%= @playdate.format_date %><br>
@@ -12,4 +14,14 @@ Dog Participants: <br>
   <% end %>
 </ol>
 
-<%= render partial: "update_cancel_play_date", locals: {playdate: @playdate} %>
+<%= form_for @playdate.dog_play_dates.build do |f| %>
+  <%= f.label :dog_id, "Add your dog to this playdate" %><br>
+  <%= f.collection_select :dog_id, current_user.dogs, :id, :name, :include_blank => false %><br>
+
+  <%= f.label :note %><br>
+  <%= f.text_area :note, class: "form-control-sm" %><br>
+
+  <%= f.hidden_field :play_date_id %>
+
+  <%= f.submit "Join Playdate", class: "btn btn-success btn-lg" %>
+<% end %>

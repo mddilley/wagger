@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :dogs
   has_many :play_dates, through: :dogs
+  # has_many :my_play_dates, :class_name => "PlayDate"
 
   accepts_nested_attributes_for :dogs, allow_destroy: true,
   reject_if: :all_blank

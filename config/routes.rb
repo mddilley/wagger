@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
   resources :play_dates, only: [:new, :create, :show, :update, :edit, :index, :destroy]
-  resources :dog_play_dates, only: [:destroy]
+  resources :dog_play_dates, only: [:destroy, :create]
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

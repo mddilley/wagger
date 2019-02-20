@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       @user = find_or_create_user_from_facebook
       login(@user)
       redirect_to welcome_path
-    elsif find_user_by_email
-      authenticate(@user)
+    else
+      authenticate_user(@user)
     end
   end
 
@@ -42,7 +42,8 @@ class SessionsController < ApplicationController
       u.password_confirmation = auth['credentials']['token'][0..9]
     end
 
-    def authenticate(user)
+    def authenticate_user(user)
+      find_user_by_email
       if user && user.authenticate(params[:password])
         login(user)
         redirect_to welcome_path

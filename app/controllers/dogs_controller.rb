@@ -4,15 +4,15 @@ class DogsController < ApplicationController
   before_action :authorized?, only: [:edit, :update, :destroy, :index, :new, :create]
 
   def index
-    @dogs = User.find(params[:user_id]).dogs
+    @dogs = find_user_by_id.dogs
   end
 
   def new
-    @dog = User.find(params[:user_id]).dogs.build
+    @dog = find_user_by_id.dogs.build
   end
 
   def create
-    @dog = User.find(params[:user_id]).dogs.build(dog_params)
+    @dog = find_user_by_id.dogs.build(dog_params)
     if @dog.save
       redirect_to user_dog_path(current_user, @dog)
     else
@@ -43,5 +43,9 @@ class DogsController < ApplicationController
 
     def dog_params
       params.require(:dog).permit(:name, :sex, :breed, :age, :weight, :friendly_rating, :aggressive_rating, :fixed, :img)
+    end
+
+    def find_dog_by_id
+      @dog = Dog.find(params[:id])
     end
 end

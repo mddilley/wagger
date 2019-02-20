@@ -23,15 +23,8 @@ class ApplicationController < ActionController::Base
       params[:user_id] ? @user = User.find(params[:user_id]) : @user = User.find(params[:id])
     end
 
-    def find_user_by_email
-      @user = User.find_by(email: params[:email])
-    end
-
-    def find_dog_by_id
-      @dog = Dog.find(params[:id])
-    end
-
     def authorized?
       redirect_to welcome_path unless find_user_by_id == current_user
     end
+    
 end

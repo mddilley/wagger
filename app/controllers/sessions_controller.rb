@@ -21,6 +21,10 @@ class SessionsController < ApplicationController
 
   private
 
+    def find_user_by_email
+      @user = User.find_by(email: params[:email])
+    end
+
     def auth
       request.env['omniauth.auth']
     end

@@ -5,7 +5,6 @@ class PlayDatesController < ApplicationController
 
   def new
     @playdate = PlayDate.new
-    @playdate.dog_play_dates.build
     current_user_dogs
   end
 
@@ -21,7 +20,6 @@ class PlayDatesController < ApplicationController
 
   def edit
     find_play_date
-    @playdate.dog_play_dates.build
     current_user_dogs
   end
 

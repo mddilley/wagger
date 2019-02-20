@@ -11,13 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      login(@user)
-      redirect_to user_path(@user)
-    else
-      @user.dogs.build
-      render :new
-    end
+    save_user_or_show_error
   end
 
   def show
@@ -40,4 +34,13 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :hobbies, :age, :city, :state, :admin, dogs_attributes: [:name, :sex])
     end
 
+    def save_user_or_show_error
+      if @user.save
+        login(@user)
+        redirect_to user_path(@user)
+      else
+        @user.dogs.build
+        render :new
+      end
+    end
 end

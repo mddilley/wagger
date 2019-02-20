@@ -13,11 +13,7 @@ class DogsController < ApplicationController
 
   def create
     @dog = find_user_by_id.dogs.build(dog_params)
-    if @dog.save
-      redirect_to user_dog_path(current_user, @dog)
-    else
-      render :new
-    end
+    save_dog_or_show_error
   end
 
   def show
@@ -29,8 +25,7 @@ class DogsController < ApplicationController
   end
 
   def update
-    find_dog_by_id
-    @dog.update(dog_params)
+    find_dog_by_id.update(dog_params)
     redirect_to user_dog_path(current_user, @dog)
   end
 
@@ -47,5 +42,13 @@ class DogsController < ApplicationController
 
     def find_dog_by_id
       @dog = Dog.find(params[:id])
+    end
+
+    def save_dog_or_show_error
+      if @dog.save
+        redirect_to user_dog_path(current_user, @dog)
+      else
+        render :new
+      end
     end
 end

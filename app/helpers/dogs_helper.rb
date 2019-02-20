@@ -57,4 +57,10 @@ module DogsHelper
     }
   end
 
+  def has_no_play_dates?(dog)
+    if !dog.play_dates.any?
+      "#{dog.name} is not attending any playdates yet!"
+    end
+  end
+
 end

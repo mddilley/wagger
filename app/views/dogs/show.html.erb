@@ -2,7 +2,7 @@
 
 <div class="container">
   <h4 class="yellow-text"><%= @dog.name %>'s Playdates</h4>
-  <%= "#{@dog.name} is not attending any playdates yet!" if @dog.play_dates == [] %>
+  <%= has_no_play_dates?(@dog) %>
   <p><%= render partial: "play_dates/play_date_list", locals: {playdates: @dog.play_dates} %></p>
 </div>
 

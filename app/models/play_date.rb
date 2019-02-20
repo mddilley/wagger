@@ -12,8 +12,8 @@ class PlayDate < ApplicationRecord
   validates :dog_limit, presence: true
   validates :dog_limit, numericality: true
 
-  scope :current, -> { where('date >= ?', DateTime.now) }
-  scope :past, -> { where('date < ?', DateTime.now) }
+  scope :current, -> { where('date >= ?', Date.current) }
+  scope :past, -> { where('date < ?', Date.current) }
   scope :by_date, -> { order('date') }
 
   def format_date

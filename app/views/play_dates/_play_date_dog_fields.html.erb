@@ -2,4 +2,4 @@
 <%= d.collection_select :dog_id, @dogs, :id, :name, :include_blank => show_blank %><br>
 
 <%= d.label :note %><br>
-<%= d.text_area :note %><br>
+<%= d.text_area :note, class: "form-control-sm" %><br>

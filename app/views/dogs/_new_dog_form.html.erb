@@ -16,22 +16,22 @@
 <%  if complete == true %>
 
   <%= f.label :age %><br>
-  <%= f.number_field :age %><br>
+  <%= f.number_field :age, class: "form-control-sm" %><br>
 
   <%= f.label :weight %><br>
-  <%= f.number_field :weight, min: 0 %><br>
+  <%= f.number_field :weight, min: 0, class: "form-control-sm" %><br>
 
-  <%= f.label "Fixed?" %>
-  <%= f.check_box :fixed, {:checked => false}, true, false %><br>
+  <%= f.check_box :fixed, {:checked => false}, true, false %>
+  <%= f.label "Fixed?" %><br>
 
   <%= f.label :friendly_rating %><br>
-  <%= f.number_field :friendly_rating, in: 1...11 %><br>
+  <%= f.number_field :friendly_rating, in: 1...11, class: "form-control-sm" %><br>
 
   <%= f.label :aggressive_rating %><br>
-  <%= f.number_field :aggressive_rating, in: 1...11 %><br>
+  <%= f.number_field :aggressive_rating, in: 1...11, class: "form-control-sm" %><br>
 
   <%= f.label "Image URL" %><br>
-  <%= f.text_field :img %><br>
+  <%= f.text_field :img, class: "form-control-sm" %><br>
 
 <% end %>
 <br>

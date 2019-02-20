@@ -2,28 +2,28 @@
 
 <%= form_for @user do |f| %>
   <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, class: "form-control-sm" %><br>
 
   <%= f.label :email %><br>
-  <%= f.email_field :email %><br>
+  <%= f.email_field :email, class: "form-control-sm" %><br>
 
   <%= f.label :age %><br>
-  <%= f.text_field :age %><br>
+  <%= f.text_field :age, class: "form-control-sm" %><br>
 
   <%= f.label :city %><br>
-  <%= f.text_field :city %><br>
+  <%= f.text_field :city, class: "form-control-sm" %><br>
 
   <%= f.label :state %><br>
-  <%= f.text_field :state %><br>
+  <%= f.text_field :state, class: "form-control-sm" %><br>
 
   <%= f.label :hobbies %><br>
-  <%= f.text_area :hobbies %><br><br>
-  <p>Enter a new password to replace your current password.</p>
+  <%= f.text_area :hobbies, class: "form-control-sm" %><br><br>
+  <p>Enter a new password and confirmation to replace your current password.</p>
   <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
+  <%= f.password_field :password, class: "form-control-sm" %><br>
 
   <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %><br><br>
+  <%= f.password_field :password_confirmation, class: "form-control-sm" %><br><br>
 
   <%= f.submit "Update Profile", class: "btn btn-success btn-lg" %>
 <% end %>

@@ -10,7 +10,4 @@ class Dog < ApplicationRecord
   validates :aggressive_rating, numericality: true
   validates :friendly_rating, numericality: true
 
-  def fixed_to_string
-    fixed ? "Yes" : "No"
-  end
 end

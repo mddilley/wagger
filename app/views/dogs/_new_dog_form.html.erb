@@ -1,5 +1,5 @@
 <%= f.label :name %><br>
-<%= f.text_field :name %><br>
+<%= f.text_field :name, class: "form-control-sm" %><br>
 
 <%= f.label :sex %><br>
 <div class="form-check">
@@ -10,7 +10,7 @@
 </div>
 
 <%= f.label :breed %><br>
-<%= f.text_field :breed, list: "dog_breeds" %>
+<%= f.text_field :breed, list: "dog_breeds", class: "form-control-sm" %>
 <%== data_list("dog_breeds", breeds_for_select) %><br>
 
 <%  if complete == true %>

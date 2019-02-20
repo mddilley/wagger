@@ -12,11 +12,7 @@ class PlayDatesController < ApplicationController
   def create
     @playdate = PlayDate.new(play_date_params)
     current_user_dogs
-    if @playdate.save
-      redirect_to play_date_path(@playdate)
-    else
-      render :new
-    end
+    save_play_date_or_show_error
   end
 
   def show
@@ -36,11 +32,7 @@ class PlayDatesController < ApplicationController
   end
 
   def index
-    if params[:id]
-      @playdates = PlayDate.current.by_date.my_play_dates(params[:id])
-    else
-      @playdates = PlayDate.current.by_date
-    end
+    populate_play_dates
   end
 
   def past
@@ -69,5 +61,21 @@ class PlayDatesController < ApplicationController
 
     def current_user_dogs
       @dogs = current_user.dogs
+    end
+
+    def save_play_date_or_show_error
+      if @playdate.save
+        redirect_to play_date_path(@playdate)
+      else
+        render :new
+      end
+    end
+
+    def populate_play_dates
+      if params[:id]
+        @playdates = PlayDate.current.by_date.my_play_dates(params[:id])
+      else
+        @playdates = PlayDate.current.by_date
+      end
     end
 end

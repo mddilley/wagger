@@ -15,11 +15,15 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
-    redirect_to root_path
+    logout
   end
 
   private
+
+    def logout
+      session.clear
+      redirect_to root_path
+    end
 
     def find_user_by_email
       @user = User.find_by(email: params[:email])

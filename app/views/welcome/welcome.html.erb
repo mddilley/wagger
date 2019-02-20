@@ -4,4 +4,4 @@
 <p>Start by adding your dogs and joining an existing playdate, or, create a playdate of your own!</p><br>
 
 <h5><strong>Newest playdates</strong></h5>
-<%= render partial: "play_dates/play_date_list", locals: {playdates: PlayDate.last_five} %>
+<%= render partial: "play_dates/play_date_list", locals: {playdates: last_five_play_dates } %>

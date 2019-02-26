@@ -22,10 +22,10 @@
           Fixed? <%= fixed_to_string(dog) %><br>
 
             How friendly?<br>
-            <%= friendly_icons(dog).html_safe %><br>
+            <%= friendly_icons(dog).html_safe if dog.friendly_rating %><br>
 
             How aggressive?<br>
-            <%= aggressive_icons(dog).html_safe %><br>
+            <%= aggressive_icons(dog).html_safe if dog.aggressive_rating %><br>
 
         <% end %>
 

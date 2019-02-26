@@ -6,7 +6,7 @@
 
   <%= render partial: "play_date_fields", locals: {f: f} %>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %><br>
 
   <%= f.submit "Create Playdate", class: "btn btn-success btn-lg" %>
 <% end %>

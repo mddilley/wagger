@@ -13,10 +13,10 @@
         <h3><a href="<%= user_dog_path(current_user, dog) %>" class="yellow-link"><%= dog.name %></a></h3>
       <% end %>
 
-        <%= dog.age %> years old<br>
-        <%= dog.weight %> lbs.<br>
-        <%= dog.breed %><br>
-        <%= dog.sex %><br>
+        <%= "#{dog.age} years old" if dog.age %> <br>
+        <%= "#{dog.weight} lbs." if dog.weight %><br>
+        <%= "#{dog.breed}" if dog.breed %><br>
+        <%= "#{dog.sex}" if dog.sex %><br>
 
         <% if complete == true %>
           Fixed? <%= fixed_to_string(dog) %><br>

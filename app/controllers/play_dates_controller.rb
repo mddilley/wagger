@@ -54,7 +54,7 @@ class PlayDatesController < ApplicationController
     end
 
     def play_date_owner?
-      redirect_to root_path unless find_play_date.id == current_user.id
+      redirect_to root_path unless find_play_date.user_id == current_user.id
     end
 
     def current_user_dogs

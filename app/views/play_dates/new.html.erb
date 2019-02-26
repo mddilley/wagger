@@ -6,13 +6,6 @@
 
   <%= render partial: "play_date_fields", locals: {f: f} %>
 
-  Choose one of your dogs to add to the playdate.<br>
-  <%= f.fields_for :dog_play_dates do |d| %>
-
-    <%= render partial: "play_date_dog_fields", locals: {d: d, show_blank: false} %>
-
-  <% end %>
-
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <%= f.submit "Create Playdate", class: "btn btn-success btn-lg" %>

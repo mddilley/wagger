@@ -1,17 +1,10 @@
-<h3>Enter your playdate details below.</h3>
+<h3>Edit your playdate details below.</h3>
 
 <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
 
 <%= form_for @playdate, url: play_dates_path do |f| %>
 
   <%= render partial: "play_date_fields", locals: {f: f} %>
-
-  Choose one of your dogs to add to the playdate.<br>
-  <%= f.fields_for :dog_play_dates do |d| %>
-
-    <%= render partial: "play_date_dog_fields", locals: {d: d, show_blank: false} %>
-
-  <% end %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
 

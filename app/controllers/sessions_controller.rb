@@ -40,10 +40,10 @@ class SessionsController < ApplicationController
     end
 
     def assign_facebook_attributes(user)
-      u.name = auth['info']['name'].split(" ")[0]
-      u.email = auth['info']['email']
-      u.password = auth['credentials']['token'][0..9]
-      u.password_confirmation = auth['credentials']['token'][0..9]
+      user.name = auth['info']['name'].split(" ")[0]
+      user.email = auth['info']['email']
+      user.password = auth['credentials']['token'][0..9]
+      user.password_confirmation = auth['credentials']['token'][0..9]
     end
 
     def authenticate_user

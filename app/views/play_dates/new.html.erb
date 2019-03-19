@@ -1,4 +1,4 @@
-<h3>Enter your dog's details below.</h3>
+<h3>Enter your playdate details below.</h3>
 
 <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
 
@@ -15,5 +15,5 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <%= f.submit "Create Playdate" %>
+  <%= f.submit "Create Playdate", class: "btn btn-success btn-lg %>
 <% end %>

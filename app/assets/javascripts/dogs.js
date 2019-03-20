@@ -1,3 +1,20 @@
+function registerHelpers(){
+Handlebars.registerHelper('bootstrapRows', function(perRow, context, options) {
+  let out = "", subcontext = [], i;
+    if (context && context.length > 0) {
+        for (i = 0; i < context.length; i++) {
+            if (i > 0 && i % perRow === 0) {
+                out += options.fn(subcontext);
+                subcontext = [];
+            }
+            subcontext.push(context[i]);
+        }
+        out += options.fn(subcontext);
+    }
+    return out;
+});
+}
+
 function listDogs(){
   let userId = $("a.btn.btn-success.btn-lg").data("id");
   $.get("/users/" + userId + "/dogs", function(json){
@@ -11,5 +28,5 @@ function listDogs(){
 
 $(function(){
   listDogs();
-
+  registerHelpers();
 });

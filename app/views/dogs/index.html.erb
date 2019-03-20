@@ -12,19 +12,24 @@
 
 </div>
 <%= javascript_include_tag "dogs" %>
+
 <script id="dogs-template" type="text/x-handlebars-template">
-  {{#each .}}
-  <div class="dog col-lg-4 text-center mb-4">
-    <img class="dog-img" src="/assets/dogs-7c584d7aae96f9c9935934cc2d6b88b835dfc5e04b3ae474273f63fc80a5d895.png">
-    <div class="overlay">
-      <div class="bottom-text">
-        <h3><a href="" class="yellow-link">{{name}}</a></h3>
-          {{age}} years old<br>
-          {{weight}} lbs.<br>
-          {{breed}}<br>
-          {{sex}}<br>
+  {{#bootstrapRows 3 .}}
+    <div class="row">
+    {{#each .}}
+    <div class="dog col-lg-4 text-center mb-4">
+      <img class="dog-img" src="/assets/dogs-7c584d7aae96f9c9935934cc2d6b88b835dfc5e04b3ae474273f63fc80a5d895.png">
+      <div class="overlay">
+        <div class="bottom-text">
+          <h3><a href="/users/{{userId}}/dogs/{{id}}" class="yellow-link">{{name}}</a></h3>
+            {{age}} years old<br>
+            {{weight}} lbs.<br>
+            {{breed}}<br>
+            {{sex}}<br>
+        </div>
       </div>
     </div>
-  </div>
-  {{/each}}
+    {{/each}}
+    </div>
+  {{/bootstrapRows}}
 </script>

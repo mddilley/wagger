@@ -5,6 +5,10 @@ class DogsController < ApplicationController
 
   def index
     @dogs = find_user_by_id.dogs
+    respond_to do |format|
+      format.json { render json: @dogs }
+      format.html { render 'dogs/index' }
+    end
   end
 
   def new

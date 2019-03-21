@@ -25,13 +25,19 @@
             {{breed}}<br>
             {{sex}}<br>
             Fixed? {{fixed}}
-      </div>
+      </div><br>
       <div class="play-dates">
-        <ol>
+        <h4 class="yellow-text">{{name}}'s Playdates</h4>
+        <ul>
           {{#each playDates}}
-            <li>{{name}}<br>{{location}}<br>{{date}}</li>
+            <li><a href="/play_dates/{{id}}">{{name}}</a>
+            <p class="indent-57">
+              <i class="fas fa-map-marker-alt"></i><span class="indent-10">{{location}}<br>
+              <i class="fas fa-calendar"></i><span class="indent-10">{{date}}</li>
+            </p>
+
           {{/each}}
-        </ol>
+        </ul>
       </div>
     </div>
 </script>

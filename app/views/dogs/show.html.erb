@@ -1,11 +1,5 @@
 <div class="dog-show" data-id="<%= @dog.id %>" data-uid="<%= @dog.user_id %>"></div>
 
-<div class="container">
-  <h4 class="yellow-text"><%= @dog.name %>'s Playdates</h4>
-  <%= has_no_play_dates?(@dog) %>
-  <p><%= render partial: "play_dates/play_date_list", locals: {playdates: @dog.play_dates} %></p>
-</div>
-
 <p class="indent-10">
   <%= link_to "Update Dog", edit_user_dog_path(current_user, @dog), class: "btn btn-success btn-lg" if current_user.dogs.include?(@dog)%><br><br>
   <%= link_to 'Remove Dog', user_dog_path(current_user, @dog), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" if current_user.dogs.include?(@dog)%>
@@ -35,7 +29,6 @@
               <i class="fas fa-map-marker-alt"></i><span class="indent-10">{{location}}<br>
               <i class="fas fa-calendar"></i><span class="indent-10">{{date}}</li>
             </p>
-
           {{/each}}
         </ul>
       </div>

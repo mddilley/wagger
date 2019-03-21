@@ -1,4 +1,6 @@
-<%= render partial: "dog_img_about", locals: {dog: @dog, div_class: "", complete: true, align: "left"} %>
+
+
+<div class="dog-show" data-id="<%= @dog.id %>" data-uid="<%= @dog.user_id %>"></div>
 
 <div class="container">
   <h4 class="yellow-text"><%= @dog.name %>'s Playdates</h4>
@@ -10,3 +12,21 @@
   <%= link_to "Update Dog", edit_user_dog_path(current_user, @dog), class: "btn btn-success btn-lg" if current_user.dogs.include?(@dog)%><br><br>
   <%= link_to 'Remove Dog', user_dog_path(current_user, @dog), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" if current_user.dogs.include?(@dog)%>
 </p>
+
+<%= javascript_include_tag "dogs" %>
+
+<script id="dog-template" type="text/x-handlebars-template">
+    {{#imgLink .}}{{/imgLink}}
+    {{#fixedString .}}{{/fixedString}}
+    <div class="dog col-lg-4 text-left mb-4">
+      <h2 class="yellow-text">{{name}}</h2>
+      <img class="dog-img" src="{{img}}">
+      <div class="">
+            {{age}} years old<br>
+            {{weight}} lbs.<br>
+            {{breed}}<br>
+            {{sex}}<br>
+            Fixed? {{fixed}}
+      </div>
+    </div>
+</script>

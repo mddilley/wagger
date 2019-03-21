@@ -21,20 +21,39 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
     this.img = `/assets/${this.img}`;
   }
 });
+Handlebars.registerHelper('fixedString', function(dogObj) {
+  if(this.fixed === true){
+    this.fixed = "Yes";
+  }
+  else {
+    this.fixed = "No";
+  }
+});
 }
 
 function listDogs(){
   let userId = $("a.btn.btn-success.btn-lg").data("id");
   $.get("/users/" + userId + "/dogs", function(json){
-    // json.map(obj => console.log(obj.name))
     const source = $("#dogs-template").html();
     const template = Handlebars.compile(source);
     const content = template(json);
-    $("div.container.text-left.text-light.align-middle.form-group").append(content);
+    $("div.dogs-show").hide().html(content).fadeIn();
+  });
+}
+
+function showDog(){
+  let userId = $("div.dog-show").data("uid");
+  let id = $("div.dog-show").data("id");
+  $.get("/users/" + userId + "/dogs/" + id, function(json){
+    const source = $("#dog-template").html();
+    const template = Handlebars.compile(source);
+    const content = template(json);
+    $("div.dog-show").hide().html(content).fadeIn();
   });
 }
 
 $(function(){
-  listDogs();
   registerHelpers();
+  listDogs();
+  showDog();
 });

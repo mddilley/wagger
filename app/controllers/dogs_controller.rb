@@ -22,6 +22,10 @@ class DogsController < ApplicationController
 
   def show
     find_dog_by_id
+    respond_to do |format|
+      format.json { render json: @dog }
+      format.html { render 'dogs/show' }
+    end
   end
 
   def edit

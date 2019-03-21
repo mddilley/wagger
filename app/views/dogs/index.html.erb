@@ -1,16 +1,9 @@
 <%= link_to "Add a dog", new_user_dog_path(current_user), class: "btn btn-success btn-lg", data: {id: "#{current_user.id}"} %><br><br>
 
-<%= render layout: "dog_grid", locals: {dogs: @dogs} do %>
-
-  <%= render partial: "dog_img_about", locals: {dog: @dog, div_class: "overlay", complete: false, align: "center"} %>
-
-<% end %>
-
-
-
 <div class="dogs-show">
 
 </div>
+
 <%= javascript_include_tag "dogs" %>
 
 <script id="dogs-template" type="text/x-handlebars-template">

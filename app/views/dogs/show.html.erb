@@ -1,5 +1,3 @@
-
-
 <div class="dog-show" data-id="<%= @dog.id %>" data-uid="<%= @dog.user_id %>"></div>
 
 <div class="container">
@@ -27,6 +25,13 @@
             {{breed}}<br>
             {{sex}}<br>
             Fixed? {{fixed}}
+      </div>
+      <div class="play-dates">
+        <ol>
+          {{#each playDates}}
+            <li>{{name}}<br>{{location}}<br>{{date}}</li>
+          {{/each}}
+        </ol>
       </div>
     </div>
 </script>

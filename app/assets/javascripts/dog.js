@@ -43,7 +43,7 @@ class Dog{
 
 function registerHelpers(){
 Handlebars.registerHelper('imgLink', function(dogObj) {
-  if(this.img === ""){
+  if(this.img === "" || this.img === null){
     this.img = "/assets/dogs.png";
   }
   else if(this.img.substring(0,4).toLowerCase() !== "http"){

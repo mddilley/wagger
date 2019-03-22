@@ -1,13 +1,20 @@
 class DogsController < ApplicationController
 
   before_action :require_login
-  before_action :authorized?, only: [:edit, :update, :destroy, :index, :new, :create]
+  before_action :authorized?, only: [:edit, :update, :destroy, :new, :create]
 
   def index
     @dogs = find_user_by_id.dogs
-    respond_to do |format|
-      format.json { render json: @dogs }
-      format.html { render 'dogs/index' }
+    if find_user_by_id == current_user
+      respond_to do |format|
+        format.json { render json: @dogs }
+        format.html { render 'dogs/index' }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: @dogs }
+        format.html { redirect_to welcome_path }
+      end
     end
   end
 

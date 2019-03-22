@@ -1,2 +1,4 @@
-<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg" %></p>
+<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg", id: "playdate-new" %></p>
 <%= render partial: "play_date_list", locals: {playdates: @playdates} %>
+
+<%= javascript_include_tag "play_dates" %>

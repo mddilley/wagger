@@ -1,4 +1,32 @@
-<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg", id: "playdate-new" %></p>
+<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg", id: "playdate-new-button" %></p>
+
+<div id="playdate-new"></div>
+
 <%= render partial: "play_date_list", locals: {playdates: @playdates} %>
 
 <%= javascript_include_tag "play_dates" %>
+
+<script id="playdate-new-template" type="text/x-handlebars-template">
+  <h3>Enter your playdate details below.</h3>
+  <form class="new_play_date" id="new_play_date" action="/play_dates" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="E1flGukHfZC1dMLK4ryKdCPp31NWUdqUmF1N1if2uNc/Mi8tO+FYeSL4YMo8oDOi9/EHkqVfhCMmcPakjUeeuQ==">
+
+    <label for="play_date_name">Name</label><br>
+    <input class="form-control-sm" type="text" name="play_date[name]" id="play_date_name"><br>
+
+    <label for="play_date_location">Location</label><br>
+    <input class="form-control-sm" type="text" name="play_date[location]" id="play_date_location"><br>
+
+    <label for="play_date_date">Date</label><br>
+    <input class="form-control-sm" type="date" name="play_date[date]" id="play_date_date"><br>
+
+    <label for="play_date_time">Time</label><br>
+    <input class="form-control-sm" type="time" name="play_date[time]" id="play_date_time"><br>
+
+    <label for="play_date_dog_limit">Dog limit</label><br>
+    <input class="form-control-sm" type="number" name="play_date[dog_limit]" id="play_date_dog_limit"><br>
+
+    <input value="14" type="hidden" name="play_date[user_id]" id="play_date_user_id"><br>
+
+    <input type="submit" name="commit" value="Create Playdate" class="btn btn-success btn-lg" data-disable-with="Create Playdate">
+  </form>
+</script>

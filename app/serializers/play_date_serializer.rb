@@ -3,10 +3,10 @@ class PlayDateSerializer < ActiveModel::Serializer
   attributes :id, :location, :date, :time, :dogLimit, :userId, :name
 
   def dogLimit
-    obj.dog_limit
+    object.dog_limit
   end
 
   def userId
-    obj.user_id
+    object.user_id
   end
 end

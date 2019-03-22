@@ -16,6 +16,10 @@ class PlayDatesController < ApplicationController
 
   def show
     find_play_date
+    respond_to do |format|
+      format.json { render json: @playdate }
+      format.html { render 'play_dates/show' }
+    end
   end
 
   def edit

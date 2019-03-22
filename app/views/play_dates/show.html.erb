@@ -1,5 +1,7 @@
 <%= render partial: "update_cancel_play_date", locals: {playdate: @playdate} %>
 
+<div class="playdate-show" data-id="<%= @playdate.id %>" data-uid="<%= current_user.id %>"></div>
+
 Name: <%= @playdate.name %><br>
 Location: <%= @playdate.location %><br>
 Date: <%= @playdate.format_date %><br>
@@ -25,3 +27,13 @@ Dog Participants: <br>
 
   <%= f.submit "Join Playdate", class: "btn btn-success btn-lg" %>
 <% end %>
+
+<%= javascript_include_tag "play_dates" %>
+
+<script id="playdate-template" type="text/x-handlebars-template">
+  Name: {{name}} years old<br>
+  Location: {{location}} lbs.<br>
+  Date: {{date}}<br>
+  Time: {{time}}<br>
+  Dog Limit: {{dogLimit}}<br>
+</script>

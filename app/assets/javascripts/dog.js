@@ -32,35 +32,7 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
 });
 }
 
-function showDog(){
-  let userId = $("div.dog-show").data("uid");
-  let id = $("div.dog-show").data("id");
-  $.get("/users/" + userId + "/dogs/" + id, function(json){
-    let dog = new Dog(json);
-    const source = $("#dog-template").html();
-    const template = Handlebars.compile(source);
-    const content = template(dog);
-    $("div.dog-show").hide().html(content).fadeIn();
-  });
-}
-
-function nextDog(){
-  let userId = $("div.dog-show").data("uid");
-  let id = $("div.dog-show").data("id");
-  id = checkNext(id);
-  $.get("/users/" + userId + "/dogs/" + id, function(json){
-    let dog = new Dog(json);
-    const source = $("#dog-template").html();
-    const template = Handlebars.compile(source);
-    const content = template(dog);
-    $("div.dog-show").hide().html(content).fadeIn();
-  });
-}
-
-function prevDog(){
-  let userId = $("div.dog-show").data("uid");
-  let id = $("div.dog-show").data("id");
-  id = checkPrev(id);
+function showDog(id, userId){
   $.get("/users/" + userId + "/dogs/" + id, function(json){
     let dog = new Dog(json);
     const source = $("#dog-template").html();
@@ -99,12 +71,16 @@ function fillDogArray(){
 
 $(function(){
   registerHelpers();
-  showDog();
+  let id = $("div.dog-show").data("id");
+  let userId = $("div.dog-show").data("uid");
+  showDog(id, userId);
   fillDogArray();
   $("div.dog-show").on('click', '#nextDog', function(){
-      nextDog();
+      let id = $("div.dog-show").data("id");
+      showDog(checkNext(id), userId);
   });
   $("div.dog-show").on('click', '#prevDog', function(){
-      prevDog();
+      let id = $("div.dog-show").data("id");
+      showDog(checkPrev(id), userId);
   });
 });

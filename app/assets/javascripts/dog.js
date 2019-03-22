@@ -1,5 +1,26 @@
 let dogArray = [];
 
+class Dog{
+  constructor(obj){
+    this.id = obj.id
+    this.name = obj.name
+    this.age = obj.age
+    this.breed = obj.breed
+    this.weight = obj.weight
+    if(obj.fixed === true){
+	     this.fixed = "Yes"
+     } else {
+	     this.fixed = "No"
+     }
+    this.userId = obj. userId
+    this.img = obj.img
+    this.friendlyRating = obj.friendlyRating
+    this.aggressiveRating = obj.aggressiveRating
+    this.sex = obj.sex
+    this.playDates = obj.playDates
+  }
+}
+
 function registerHelpers(){
 Handlebars.registerHelper('imgLink', function(dogObj) {
   if(this.img === ""){
@@ -9,23 +30,16 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
     this.img = `/assets/${this.img}`;
   }
 });
-Handlebars.registerHelper('fixedString', function(dogObj) {
-  if(this.fixed === true){
-    this.fixed = "Yes";
-  }
-  else {
-    this.fixed = "No";
-  }
-});
 }
 
 function showDog(){
   let userId = $("div.dog-show").data("uid");
   let id = $("div.dog-show").data("id");
   $.get("/users/" + userId + "/dogs/" + id, function(json){
+    let dog = new Dog(json);
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
-    const content = template(json);
+    const content = template(dog);
     $("div.dog-show").hide().html(content).fadeIn();
   });
 }
@@ -33,11 +47,12 @@ function showDog(){
 function nextDog(){
   let userId = $("div.dog-show").data("uid");
   let id = $("div.dog-show").data("id");
-  id = checkNext(userId, id);
+  id = checkNext(id);
   $.get("/users/" + userId + "/dogs/" + id, function(json){
+    let dog = new Dog(json);
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
-    const content = template(json);
+    const content = template(dog);
     $("div.dog-show").hide().html(content).fadeIn();
   });
 }
@@ -45,16 +60,17 @@ function nextDog(){
 function prevDog(){
   let userId = $("div.dog-show").data("uid");
   let id = $("div.dog-show").data("id");
-  id = checkPrev(userId, id);
+  id = checkPrev(id);
   $.get("/users/" + userId + "/dogs/" + id, function(json){
+    let dog = new Dog(json);
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
-    const content = template(json);
+    const content = template(dog);
     $("div.dog-show").hide().html(content).fadeIn();
   });
 }
 
-function checkNext(userId, id){
+function checkNext(id){
   let index = dogArray.indexOf(id);
   if(index + 1 < dogArray.length){
     $("div.dog-show").data("id", dogArray[index + 1]);
@@ -64,7 +80,7 @@ function checkNext(userId, id){
   }
 }
 
-function checkPrev(userId, id){
+function checkPrev(id){
   let index = dogArray.indexOf(id);
   if(index - 1 >= 0){
     $("div.dog-show").data("id", dogArray[index - 1]);

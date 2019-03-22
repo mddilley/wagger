@@ -19,6 +19,26 @@ class Dog{
     this.sex = obj.sex
     this.playDates = obj.playDates
   }
+  friendlyIcons(){
+    let html = "Friendly Rating ";
+    for(let i = 0; i < this.friendlyRating; i++){
+      html += "<i class=\"fas fa-smile yellow-text\"></i> "
+    }
+    for(let i = 0; i < (10 - this.friendlyRating); i++){
+      html += "<i class=\"fas fa-smile invert\"></i>"
+    }
+    return html;
+  }
+  aggressiveIcons(){
+    let html = "Aggressive Rating ";
+    for(let i = 0; i < this.aggressiveRating; i++){
+      html += "<i class=\"fas fa-angry red-text\"></i> "
+    }
+    for(let i = 0; i < (10 - this.aggressiveRating); i++){
+      html += "<i class=\"fas fa-angry invert\"></i>"
+    }
+    return html;
+  }
 }
 
 function registerHelpers(){
@@ -38,7 +58,10 @@ function showDog(id, userId){
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
     const content = template(dog);
-    $("div.dog-show").hide().html(content).fadeIn();
+    $("div.dog-show").hide().html(content);
+    $("span#friendly").append(dog.friendlyIcons());
+    $("span#aggressive").append(dog.aggressiveIcons());
+    $("div.dog-show").fadeIn();
   });
 }
 

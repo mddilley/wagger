@@ -34,6 +34,7 @@ class PlayDatesController < ApplicationController
   end
 
   def index
+    @playdate = PlayDate.new
     populate_play_dates
   end
 

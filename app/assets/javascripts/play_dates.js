@@ -1,12 +1,16 @@
+$("div#playdate-new").hide()
+
 function showForm(){
-  const source = $("#playdate-new-template").html();
-  const template = Handlebars.compile(source);
-  const content = template();
-  $("div#playdate-new").hide().html(content).fadeIn();
-  $("div#playdate-new").on('click', '#playdate-create-button', function(e){
-    alert("hi")
-    e.preventDefault();
-  });
+  $("div#playdate-new").fadeIn();
+  $('form').submit(function(event) {
+      event.preventDefault();
+      let values = $(this).serialize();
+      let posting = $.post('/play_dates', values);
+      posting.done(function(data) {
+        debugger;
+        //data received as json, create PlayDate and append
+      });
+    });
 }
 
 $(function(){

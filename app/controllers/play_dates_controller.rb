@@ -39,6 +39,7 @@ class PlayDatesController < ApplicationController
   end
 
   def past
+    @playdate = PlayDate.new
     @playdates = PlayDate.past.by_date
     render "index"
   end

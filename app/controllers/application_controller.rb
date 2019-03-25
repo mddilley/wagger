@@ -26,5 +26,9 @@ class ApplicationController < ActionController::Base
     def authorized?
       redirect_to welcome_path unless find_user_by_id == current_user
     end
-    
+
+    def record_not_found
+      redirect_to root_path
+    end
+
 end

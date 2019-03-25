@@ -44,9 +44,17 @@ function showForm(){
       event.preventDefault();
       let values = $(this).serialize();
       let posting = $.post('/play_dates', values);
-      posting.done(function(data) {
+      posting.done(function(json) {
         debugger;
         //data received as json, create PlayDate and append
+        let playDate = new PlayDate(json);
+        playDate.formatTime();
+        playDate.formatDate();
+        const source = $("#playdate-template").html();
+        const template = Handlebars.compile(source);
+        const content = template(playDate);
+        $("div.playdates-show").hide().html(content).fadeIn();
+        $("div#playdate-new").fadeOut();
       });
     });
 }
@@ -58,7 +66,7 @@ $(function(){
       e.preventDefault();
     });
   }
-  if($("div.playdate-new").length){
+  if($("div.playdate-show").length){
     appendPlayDate();
   }
 });

@@ -1,5 +1,5 @@
 class PlayDatesController < ApplicationController
-
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :require_login
   before_action :play_date_owner?, only: [:destroy, :edit]
 
@@ -81,4 +81,5 @@ class PlayDatesController < ApplicationController
         @playdates = PlayDate.current.by_date
       end
     end
+
 end

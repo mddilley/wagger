@@ -1,3 +1,7 @@
+if($("div#playdate-new").length){
+  $("div#playdate-new").hide()
+}
+
 class PlayDate{
   constructor(obj){
     this.date = obj.date
@@ -21,7 +25,7 @@ class PlayDate{
   }
 }
 
-function showPlaydate(){
+function appendPlayDate(){
   let playDateId = $("div.playdate-show").data("id");
   $.get("/play_dates/" + playDateId, function(json){
     let playDate = new PlayDate(json);
@@ -34,6 +38,27 @@ function showPlaydate(){
   });
 }
 
+function showForm(){
+  $("div#playdate-new").fadeIn();
+  $('form').submit(function(event) {
+      event.preventDefault();
+      let values = $(this).serialize();
+      let posting = $.post('/play_dates', values);
+      posting.done(function(data) {
+        debugger;
+        //data received as json, create PlayDate and append
+      });
+    });
+}
+
 $(function(){
-  showPlaydate();
+  if($("a#playdate-new-button").length){
+    $("a#playdate-new-button").click(function(e){
+      showForm();
+      e.preventDefault();
+    });
+  }
+  if($("div.playdate-new").length){
+    appendPlayDate();
+  }
 });

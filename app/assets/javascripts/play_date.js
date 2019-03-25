@@ -41,6 +41,8 @@ function showForm(){
       posting.done(function(json) {
         $("div.playdates-show").hide().html(compilePlayDate(json)).fadeIn();
         $("div#playdate-new").fadeOut();
+        $('#new_play_date > input:submit').removeAttr('disabled');
+        $('form').trigger("reset");
       });
     });
 }

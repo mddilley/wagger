@@ -39,10 +39,15 @@ function showForm(){
       let values = $(this).serialize();
       let posting = $.post('/play_dates', values);
       posting.done(function(json) {
-        $("div.playdates-show").hide().html(compilePlayDate(json)).fadeIn();
-        $("div#playdate-new").fadeOut();
+        if(json.errors){
+          json.errors.map(error => $("div#form-errors").append(`<p class="red-text">${error}</p>`));
+        }else{
+          $("div.playdates-show").hide().html(compilePlayDate(json)).fadeIn();
+          $("div#playdate-new").fadeOut();
+          $('form').trigger("reset");
+          $("div#form-errors").html("");
+        }
         $('#new_play_date > input:submit').removeAttr('disabled');
-        $('form').trigger("reset");
       });
     });
 }

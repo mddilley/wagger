@@ -69,9 +69,9 @@ class PlayDatesController < ApplicationController
 
     def save_play_date_or_show_error
       if @playdate.save
-        redirect_to play_date_path(@playdate)
+        render json: @playdate, status: 201
       else
-        render :new
+        render :json => { :errors => @playdate.errors.full_messages }
       end
     end
 

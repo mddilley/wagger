@@ -3,7 +3,7 @@
 <div id="playdate-new">
   <h3>Edit your playdate details below.</h3>
 
-  <%= render partial: "layouts/show_errors", locals: {model: @playdate} %>
+  <div id="form-errors"></div>
 
   <%= form_for @playdate, url: play_dates_path do |f| %>
 

@@ -28,6 +28,7 @@ class PlayDate{
 function appendPlayDate(){
   let playDateId = $("div.playdate-show").data("id");
   $.get("/play_dates/" + playDateId, function(json){
+    debugger;
     $("div.playdate-show").hide().html(compilePlayDate(json)).fadeIn();
   });
 }

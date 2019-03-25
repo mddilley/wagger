@@ -31,4 +31,12 @@ Dog Participants: <br>
   Date: {{date}}<br>
   Time: {{time}}<br>
   Dog Limit: {{dogLimit}}<br>
+  Dog Participants:<br>
+  <ol>
+    {{#each dogs}}
+      <li>
+        <a href="user/{{userId}}/dogs/{{id}}">{{name}}</a>
+      </li>
+    {{/each}}
+  </ol>
 </script>

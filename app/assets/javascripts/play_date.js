@@ -45,8 +45,6 @@ function showForm(){
       let values = $(this).serialize();
       let posting = $.post('/play_dates', values);
       posting.done(function(json) {
-        debugger;
-        //data received as json, create PlayDate and append
         let playDate = new PlayDate(json);
         playDate.formatTime();
         playDate.formatDate();

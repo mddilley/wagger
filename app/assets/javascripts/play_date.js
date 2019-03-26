@@ -58,19 +58,20 @@ function appendPlayDate(){
 
 function showForm(){
   $("div#playdate-new").fadeIn();
-  $("button#cancel-button").click(function(){
+  $("button#cancel-button").click(function(event){
     event.preventDefault();
     $("div#playdate-new").fadeOut();
   });
   $('form').submit(function(event) {
       event.preventDefault();
+      event.stopImmediatePropagation();
       let values = $(this).serialize();
       let posting = $.post('/play_dates', values);
       posting.done(function(json) {
         if(json.errors){
           json.errors.map(error => $("div#form-errors").append(`<p class="red-text">${error}</p>`));
         }else{
-          $("div.playdates-show").hide().html(compilePlayDate(json)).fadeIn();
+          $("div.playdates-show").hide().append(compilePlayDate(json)).fadeIn();
           $("div#playdate-new").fadeOut();
           $('form').trigger("reset");
           $("div#form-errors").html("");

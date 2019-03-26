@@ -24,7 +24,7 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
 }
 
 function listDogs(){
-  let userId = $("a.btn.btn-success.btn-lg").data("id");
+  let userId = $("body").data("user-id");
   $.get("/users/" + userId + "/dogs", function(json){
     const source = $("#dogs-template").html();
     const template = Handlebars.compile(source);

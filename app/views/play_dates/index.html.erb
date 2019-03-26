@@ -1,7 +1,7 @@
 <p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg", id: "playdate-new-button", data: {user_id: "#{current_user.id}"} %></p>
 
 <div id="playdate-new">
-  <h3>Edit your playdate details below.</h3>
+  <h3>Enter your playdate details below.</h3>
 
   <div id="form-errors"></div>
 
@@ -11,7 +11,8 @@
 
     <%= f.hidden_field :user_id, :value => current_user.id %><br>
 
-    <%= f.submit "Create Playdate", class: "btn btn-success btn-lg" %><br><br>
+    <%= f.submit "Create Playdate", class: "btn btn-success btn-lg" %>
+    <%= f.button "Cancel", class: "btn btn-danger btn-lg", id: "cancel-button" %><br><br>
   <% end %>
 </div>
 

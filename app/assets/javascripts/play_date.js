@@ -58,6 +58,10 @@ function appendPlayDate(){
 
 function showForm(){
   $("div#playdate-new").fadeIn();
+  $("button#cancel-button").click(function(){
+    event.preventDefault();
+    $("div#playdate-new").fadeOut();
+  });
   $('form').submit(function(event) {
       event.preventDefault();
       let values = $(this).serialize();

@@ -64,8 +64,6 @@ function showDog(id, userId){
     const template = Handlebars.compile(source);
     const content = template(dog);
     $("div.dog-show").hide().html(content);
-    $("span#friendly").append(dog.friendlyIcons());
-    $("span#aggressive").append(dog.aggressiveIcons());
     $("div.dog-show").fadeIn();
   });
 }

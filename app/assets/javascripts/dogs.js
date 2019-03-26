@@ -14,7 +14,7 @@ Handlebars.registerHelper('bootstrapRows', function(perRow, context, options) {
     return out;
 });
 Handlebars.registerHelper('imgLink', function(dogObj) {
-  if(this.img === ""){
+  if(this.img === "" || this.img === null){
     this.img = "/assets/dogs.png";
   }
   else if(this.img.substring(0,4).toLowerCase() !== "http"){

@@ -2,15 +2,6 @@
 
 <div class="playdate-show" data-id="<%= @playdate.id %>" data-uid="<%= current_user.id %>"></div>
 
-Dog Participants: <br>
-<ol>
-  <% @playdate.dogs.each do |d| %>
-    <li><%= link_to d.name, user_dog_path(d.user, d) %><%= link_to ' <i class="far fa-times-circle"></i>'.html_safe, dog_play_date_path(DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id)), data: { confirm: "Are you sure you want to remove #{d.name} from this playdate?" }, method: :delete, class: "red-link" if current_user.dogs.include?(d)%>
-        <p>Note: <%= DogPlayDate.find_by(dog_id: d.id, play_date_id: @playdate.id).note %></p>
-    </li>
-  <% end %>
-</ol>
-
 <%= form_for @playdate.dog_play_dates.build do |f| %>
   <%= f.label :dog_id, "Add your dog to this playdate" %><br>
   <%= f.collection_select :dog_id, current_user.dogs, :id, :name, :include_blank => false %><br>
@@ -30,12 +21,12 @@ Dog Participants: <br>
   Location: {{location}}<br>
   Date: {{date}}<br>
   Time: {{time}}<br>
-  Dog Limit: {{dogLimit}}<br>
+  Dog Limit: {{dogLimit}}<br><br>
   Dog Participants:<br>
   <ol>
-    {{#each dogs}}
+    {{#each playDates}}
       <li>
-        <a href="user/{{userId}}/dogs/{{id}}">{{name}}</a>
+        <a href="/users/{{userId}}/dogs/{{id}}">{{dog}}</a> - "{{note}}"<br>
       </li>
     {{/each}}
   </ol>

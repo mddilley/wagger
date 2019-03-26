@@ -12,6 +12,7 @@ class PlayDate{
     this.name = obj.name
     this.userId = obj.userId
     this.time = obj.time
+    this.playDates = obj.playDates
   }
   formatTime(){
     let time = moment(this.time);

@@ -19,26 +19,28 @@ class Dog{
     this.sex = obj.sex
     this.playDates = obj.playDates.map(playDate => new PlayDate(playDate));
   }
-  friendlyIcons(){
-    let html = "Friendly Rating ";
-    for(let i = 0; i < this.friendlyRating; i++){
-      html += "<i class=\"fas fa-smile yellow-text\"></i> "
-    }
-    for(let i = 0; i < (10 - this.friendlyRating); i++){
-      html += "<i class=\"fas fa-smile invert\"></i>"
-    }
-    return html;
+}
+
+Dog.prototype.friendlyIcons = function(){
+  let html = "Friendly Rating ";
+  for(let i = 0; i < this.friendlyRating; i++){
+    html += "<i class=\"fas fa-smile yellow-text\"></i> "
   }
-  aggressiveIcons(){
-    let html = "Aggressive Rating ";
-    for(let i = 0; i < this.aggressiveRating; i++){
-      html += "<i class=\"fas fa-angry red-text\"></i> "
-    }
-    for(let i = 0; i < (10 - this.aggressiveRating); i++){
-      html += "<i class=\"fas fa-angry invert\"></i>"
-    }
-    return html;
+  for(let i = 0; i < (10 - this.friendlyRating); i++){
+    html += "<i class=\"fas fa-smile invert\"></i>"
   }
+  return html;
+}
+
+Dog.prototype.aggressiveIcons = function(){
+  let html = "Aggressive Rating ";
+  for(let i = 0; i < this.aggressiveRating; i++){
+    html += "<i class=\"fas fa-angry red-text\"></i> "
+  }
+  for(let i = 0; i < (10 - this.aggressiveRating); i++){
+    html += "<i class=\"fas fa-angry invert\"></i>"
+  }
+  return html;
 }
 
 function registerHelpers(){

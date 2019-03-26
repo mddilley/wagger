@@ -14,16 +14,28 @@ class PlayDate{
     this.time = obj.time
     this.playDates = obj.playDates
   }
-  formatTime(){
-    let time = moment(this.time);
-    time._isUTC = true;
-    this.time = time.format('LT');
-  }
-  formatDate(){
-    let date = moment(this.date)
-    date._isUTC = true;
-    this.date = date.format('LL');
-  }
+}
+
+PlayDate.prototype.formatTime = function(){
+  let time = moment(this.time);
+  time._isUTC = true;
+  this.time = time.format('LT');
+}
+
+PlayDate.prototype.formatDate = function(){
+  let date = moment(this.date)
+  date._isUTC = true;
+  this.date = date.format('LL');
+}
+
+function compilePlayDate(json){
+  let playDate = new PlayDate(json);
+  playDate.formatTime();
+  playDate.formatDate();
+  const source = $("#playdate-template").html();
+  const template = Handlebars.compile(source);
+  const content = template(playDate);
+  return content;
 }
 
 function appendPlayDate(){
@@ -52,16 +64,6 @@ function showForm(){
         $('#new_play_date > input:submit').removeAttr('disabled');
       });
     });
-}
-
-function compilePlayDate(json){
-  let playDate = new PlayDate(json);
-  playDate.formatTime();
-  playDate.formatDate();
-  const source = $("#playdate-template").html();
-  const template = Handlebars.compile(source);
-  const content = template(playDate);
-  return content;
 }
 
 $(function(){

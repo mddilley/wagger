@@ -28,15 +28,15 @@ PlayDate.prototype.formatDate = function(){
   this.date = date.format('LL');
 }
 
-PlayDate.prototype.playDateIcons = function(userId){
+PlayDate.prototype.playDateIcons = function(){
   let html = "";
   let ownerIcon = "<i class=\"fas fa-user-edit invert\"></i>";
-  if(this.userId === userId){
+  if(this.userId === $('body').data("user-id")){
       ownerIcon = "<i class=\"fas fa-user-edit white-text\"></i>";
   }
   let attendingIcon = "<i class=\"fas fa-calendar-check white-text\"></i>";
-  html = ownerIcon + "&nbsp&nbsp&nbsp" + attendingIcon + "&nbsp&nbsp&nbsp&nbsp" + this.name;
-  this.name = html;
+  html = ownerIcon + "&nbsp&nbsp&nbsp" + attendingIcon + "&nbsp&nbsp&nbsp&nbsp";
+  return html;
 }
 
 function compilePlayDate(json){

@@ -16,7 +16,7 @@ class PlayDateSerializer < ActiveModel::Serializer
       dogPlayDate = {}
       dogPlayDate["dog"] = Dog.find(d.dog_id).name
       dogPlayDate["userId"] = Dog.find(d.dog_id).user_id
-      dogPlayDate["id"] = d.id
+      dogPlayDate["dogId"] = Dog.find(d.dog_id).id
       dogPlayDate["note"] = d.note
       dogPlayDates << dogPlayDate
     end

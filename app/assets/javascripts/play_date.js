@@ -2,6 +2,17 @@ if($("div#playdate-new").length){
   $("div#playdate-new").hide()
 }
 
+function registerHelpers(){
+  Handlebars.registerHelper('deleteButton', function() {
+    if(this.userId === $('body').data("user-id")){
+      return `<a data-confirm=\"Are you sure?\" data-method=\"delete\" href=\"/dog_play_dates/${this.id}\"><i class=\"far fa-times-circle red-link\"></i></a>`
+    }
+    else{
+      return ""
+    }
+  });
+}
+
 class PlayDate{
   constructor(obj){
     this.date = obj.date
@@ -91,4 +102,5 @@ $(function(){
   if($("div.playdate-show").length){
     appendPlayDate();
   }
+  registerHelpers();
 });

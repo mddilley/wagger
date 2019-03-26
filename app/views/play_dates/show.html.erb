@@ -26,7 +26,7 @@
   <ol>
     {{#each playDates}}
       <li>
-        <a href="/users/{{userId}}/dogs/{{dogId}}">{{dog}}</a> - "{{note}}"<br>
+        <a href="/users/{{userId}}/dogs/{{dogId}}">{{dog}}</a> - "{{note}}" {{#deleteButton .}}{{/deleteButton}}<br>
       </li>
     {{/each}}
   </ol>

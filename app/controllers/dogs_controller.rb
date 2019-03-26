@@ -45,6 +45,7 @@ class DogsController < ApplicationController
   end
 
   def destroy
+    find_dog_by_id.dog_play_dates.each {|p| p.destroy }
     find_dog_by_id.destroy
     redirect_to user_dogs_path(current_user)
   end

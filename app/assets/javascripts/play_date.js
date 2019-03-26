@@ -28,6 +28,17 @@ PlayDate.prototype.formatDate = function(){
   this.date = date.format('LL');
 }
 
+PlayDate.prototype.playDateIcons = function(userId){
+  let html = "";
+  let ownerIcon = "<i class=\"fas fa-user-edit invert\"></i>";
+  if(this.userId === userId){
+      ownerIcon = "<i class=\"fas fa-user-edit white-text\"></i>";
+  }
+  let attendingIcon = "<i class=\"fas fa-calendar-check white-text\"></i>";
+  html = ownerIcon + "&nbsp&nbsp&nbsp" + attendingIcon + "&nbsp&nbsp&nbsp&nbsp" + this.name;
+  this.name = html;
+}
+
 function compilePlayDate(json){
   let playDate = new PlayDate(json);
   playDate.formatTime();
@@ -41,7 +52,6 @@ function compilePlayDate(json){
 function appendPlayDate(){
   let playDateId = $("div.playdate-show").data("id");
   $.get("/play_dates/" + playDateId, function(json){
-    debugger;
     $("div.playdate-show").hide().html(compilePlayDate(json)).fadeIn();
   });
 }

@@ -59,6 +59,7 @@ function showDog(id, userId){
     let dog = new Dog(json);
     dog.playDates.forEach(playDate => playDate.formatTime());
     dog.playDates.forEach(playDate => playDate.formatDate());
+    dog.playDates.forEach(playDate => playDate.playDateIcons(userId));
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
     const content = template(dog);

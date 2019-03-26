@@ -17,7 +17,7 @@ class Dog{
     this.friendlyRating = obj.friendlyRating
     this.aggressiveRating = obj.aggressiveRating
     this.sex = obj.sex
-    this.playDates = obj.playDates
+    this.playDates = obj.playDates.map(playDate => new PlayDate(playDate));
   }
   friendlyIcons(){
     let html = "Friendly Rating ";
@@ -55,6 +55,8 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
 function showDog(id, userId){
   $.get("/users/" + userId + "/dogs/" + id, function(json){
     let dog = new Dog(json);
+    dog.playDates.forEach(playDate => playDate.formatTime());
+    dog.playDates.forEach(playDate => playDate.formatDate());
     const source = $("#dog-template").html();
     const template = Handlebars.compile(source);
     const content = template(dog);

@@ -3,7 +3,6 @@ class DogPlayDatesController < ApplicationController
   before_action :require_login
 
   def destroy
-    binding.pry
     find_dog_play_date_by_id.destroy
     redirect_to play_dates_path
   end

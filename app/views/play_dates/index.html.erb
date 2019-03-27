@@ -1,2 +1,35 @@
-<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg" %></p>
+<p><%= link_to "Create a New Playdate", new_play_date_path, class: "btn btn-success btn-lg", id: "playdate-new-button", data: {user_id: "#{current_user.id}"} %></p>
+
+<div id="playdate-new">
+  <h3>Enter your playdate details below.</h3>
+
+  <div id="form-errors"></div>
+
+  <%= form_for @playdate, url: play_dates_path do |f| %>
+
+    <%= render partial: "play_date_fields", locals: {f: f} %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %><br>
+
+    <%= f.submit "Create Playdate", class: "btn btn-success btn-lg" %>
+    <%= f.button "Cancel", class: "btn btn-danger btn-lg", id: "cancel-button" %><br><br>
+  <% end %>
+</div>
+
 <%= render partial: "play_date_list", locals: {playdates: @playdates} %>
+
+<div class="playdates-show" data-id="<%= @playdate.id %>" data-uid="<%= current_user.id %>"></div>
+
+<%= javascript_include_tag "play_date" %>
+
+<script id="playdate-template" type="text/x-handlebars-template">
+  <ul>
+    <li>
+      {{{playDateIcons}}}<a href="/play_dates/{{id}}">{{name}}</a>
+      <p class="indent-57">
+        <i class="fas fa-map-marker-alt"></i><span class="indent-10">{{location}}<br>
+        <i class="fas fa-calendar"></i><span class="indent-10">{{date}} at {{time}}
+      </p>
+    </li>
+  </ul>
+</script>

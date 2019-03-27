@@ -65,6 +65,10 @@
    color: rgb(216,54,72) !important;
  }
 
+ .white-text {
+   color: white !important;
+ }
+
  #white-fb {
    color: white !important;
  }

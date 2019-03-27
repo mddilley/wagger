@@ -1,12 +1,37 @@
-<%= render partial: "dog_img_about", locals: {dog: @dog, div_class: "", complete: true, align: "left"} %>
+<div class="dog-show" data-id="<%= @dog.id %>" data-uid="<%= @dog.user_id %>"></div>
 
-<div class="container">
-  <h4 class="yellow-text"><%= @dog.name %>'s Playdates</h4>
-  <%= has_no_play_dates?(@dog) %>
-  <p><%= render partial: "play_dates/play_date_list", locals: {playdates: @dog.play_dates} %></p>
-</div>
+<%= javascript_include_tag "play_date" %>
+<%= javascript_include_tag "dog" %>
 
-<p class="indent-10">
-  <%= link_to "Update Dog", edit_user_dog_path(current_user, @dog), class: "btn btn-success btn-lg" if current_user.dogs.include?(@dog)%><br><br>
-  <%= link_to 'Remove Dog', user_dog_path(current_user, @dog), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger btn-lg" if current_user.dogs.include?(@dog)%>
-</p>
+<script id="dog-template" type="text/x-handlebars-template">
+    {{#imgLink .}}{{/imgLink}}
+    <div class="dog col-lg-4 text-left mb-4">
+      <a href="#" class="btn btn-outline-warning btn-sm" id="prevDog">< Previous Dog</a>
+      <a href="#" class="btn btn-outline-warning btn-sm pull-right" id="nextDog">Next Dog ></a><br><br>
+      <h2 class="yellow-text">{{name}}</h2>
+      <img class="dog-img" src="{{img}}">
+      <div class="">
+            {{age}} years old<br>
+            {{weight}} lbs.<br>
+            {{breed}}<br>
+            {{sex}}<br>
+            Fixed? {{fixed}}<br>
+            {{{friendlyIcons}}}<br>
+            {{{aggressiveIcons}}}
+      </div><br>
+      <div class="play-dates">
+        <h4 class="yellow-text">{{name}}'s Playdates</h4>
+        <ul>
+          {{#each playDates}}
+            <li>{{{playDateIcons}}}<a href="/play_dates/{{id}}">{{{name}}}</a>
+            <p class="indent-57">
+              <i class="fas fa-map-marker-alt"></i><span class="indent-10">{{location}}<br>
+              <i class="fas fa-calendar"></i><span class="indent-10">{{date}} at {{time}}</li>
+            </p>
+          {{/each}}
+        </ul>
+      </div>
+      <a class="btn btn-success btn-lg" href="/users/{{userId}}/dogs/{{id}}/edit">Update Dog</a><br><br>
+      <a data-confirm="Are you sure?" class="btn btn-danger btn-lg" rel="nofollow" data-method="delete" href="/users/{{userId}}/dogs/{{id}}">Remove Dog</a>
+    </div>
+</script>

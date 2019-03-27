@@ -1,7 +1,29 @@
 <%= link_to "Add a dog", new_user_dog_path(current_user), class: "btn btn-success btn-lg" %><br><br>
 
-<%= render layout: "dog_grid", locals: {dogs: @dogs} do %>
+<div class="dogs-show">
 
-  <%= render partial: "dog_img_about", locals: {dog: @dog, div_class: "overlay", complete: false, align: "center"} %>
+</div>
 
-<% end %>
+<%= javascript_include_tag "dogs" %>
+
+<script id="dogs-template" type="text/x-handlebars-template">
+  {{#bootstrapRows 3 .}}
+    <div class="row">
+    {{#each .}}
+    {{#imgLink .}}{{/imgLink}}
+    <div class="dog col-lg-4 text-center mb-4">
+      <img class="dog-img" src="{{img}}">
+      <div class="overlay">
+        <div class="bottom-text">
+          <h3><a href="/users/{{userId}}/dogs/{{id}}" class="yellow-link">{{name}}</a></h3>
+            {{age}} years old<br>
+            {{weight}} lbs.<br>
+            {{breed}}<br>
+            {{sex}}<br>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    </div>
+  {{/bootstrapRows}}
+</script>

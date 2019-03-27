@@ -1,5 +1,5 @@
 class PlayDatesController < ApplicationController
-
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :require_login
   before_action :play_date_owner?, only: [:destroy, :edit]
 
@@ -16,6 +16,10 @@ class PlayDatesController < ApplicationController
 
   def show
     find_play_date
+    respond_to do |format|
+      format.json { render json: @playdate }
+      format.html { render 'play_dates/show' }
+    end
   end
 
   def edit
@@ -30,10 +34,12 @@ class PlayDatesController < ApplicationController
   end
 
   def index
+    @playdate = PlayDate.new
     populate_play_dates
   end
 
   def past
+    @playdate = PlayDate.new
     @playdates = PlayDate.past.by_date
     render "index"
   end
@@ -63,9 +69,9 @@ class PlayDatesController < ApplicationController
 
     def save_play_date_or_show_error
       if @playdate.save
-        redirect_to play_date_path(@playdate)
+        render json: @playdate, status: 201
       else
-        render :new
+        render :json => { :errors => @playdate.errors.full_messages }
       end
     end
 
@@ -76,4 +82,5 @@ class PlayDatesController < ApplicationController
         @playdates = PlayDate.current.by_date
       end
     end
+
 end

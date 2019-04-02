@@ -5,7 +5,7 @@ if($("div#playdate-new").length){
 function registerHelpers(){
   Handlebars.registerHelper('deleteButton', function() {
     if(this.userId === $('body').data("user-id")){
-      return `<a data-confirm=\"Are you sure?\" data-method=\"delete\" href=\"/dog_play_dates/${this.id}\"><i class=\"far fa-times-circle red-link\"></i></a>`
+      return `<a data-confirm=\"Are you sure you want to remove this dog?\" data-method=\"delete\" href=\"/dog_play_dates/${this.id}\"><i class=\"far fa-times-circle red-link\"></i></a>`
     }
     else{
       return ""

@@ -23,6 +23,27 @@ Handlebars.registerHelper('imgLink', function(dogObj) {
 });
 }
 
+function sortDogs(){
+  let userId = $("body").data("user-id");
+  $.get("/users/" + userId + "/dogs", function(json){
+      json.sort(function(a, b) {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    const source = $("#dogs-template").html();
+    const template = Handlebars.compile(source);
+    const content = template(json);
+    $("div.dogs-show").hide().html(content).fadeIn();
+  });
+}
+
 function listDogs(){
   let userId = $("body").data("user-id");
   $.get("/users/" + userId + "/dogs", function(json){
@@ -34,6 +55,9 @@ function listDogs(){
 }
 
 $(function(){
+  $('#sort-dog').on('click', function(){
+    sortDogs();
+  });
   registerHelpers();
   listDogs();
 });

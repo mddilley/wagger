@@ -15,10 +15,10 @@ Handlebars.registerHelper('bootstrapRows', function(perRow, context, options) {
 });
 Handlebars.registerHelper('imgLink', function(dogObj) {
   if(this.img === "" || this.img === null){
-    this.img = "/assets/dogs.png";
+    this.img = "/dogs.png";
   }
   else if(this.img.substring(0,4).toLowerCase() !== "http"){
-    this.img = `/assets/${this.img}`;
+    this.img = `/${this.img}`;
   }
 });
 }

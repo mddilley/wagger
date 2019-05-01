@@ -1,7 +1,13 @@
-<div class="text-center">
+<div class="text-center demo-parent">
   <h1 class="display-2 font-weight-bold">Welcome to Wagger.</h1>
   <h1 class="display-2 font-weight-bold"><i class="fas fa-dog"></i></h1>
   <h2>Wag better - <u>together</u>.</h2>
+  <div class="demo">
+      <br>
+      <h2>Please use username: demo@demo.com and password: 123456 to demo this application.</h2>
+      <button class="btn btn-success btn-lg" type="button" name="okay">Ok</button>
+      <br><br>
+  </div>
   <p class="lead"><br>
     <p><a class="btn btn-success btn-lg" href="<%= new_user_path %>" role="button">Sign Up</a></p>
     <p>or</p>
@@ -10,3 +16,4 @@
     <h3><%= link_to('<span id="white-fb">Log in with Facebook </span><i class="fab fa-facebook-square"></i>'.html_safe, '/auth/facebook') %></h3>
   </p>
 </div>
+<%= javascript_include_tag "index" %>

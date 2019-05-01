@@ -31,4 +31,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
 
+    def header_vary
+      response.header["Vary"] = "Accept"
+      binding.pry
+    end
+
 end

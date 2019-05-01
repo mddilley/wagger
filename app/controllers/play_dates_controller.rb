@@ -2,6 +2,7 @@ class PlayDatesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :require_login
   before_action :play_date_owner?, only: [:destroy, :edit]
+  after_action :header_vary, only: [:show, :index]
 
   def new
     @playdate = PlayDate.new

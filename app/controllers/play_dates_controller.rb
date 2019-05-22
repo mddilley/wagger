@@ -11,6 +11,7 @@ class PlayDatesController < ApplicationController
 
   def create
     @playdate = PlayDate.new(play_date_params)
+    binding.pry
     current_user_dogs
     save_play_date_or_show_error
   end

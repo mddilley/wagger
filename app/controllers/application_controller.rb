@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
 
     def header_vary
       response.header["Vary"] = "Accept"
-      binding.pry
     end
 
 end

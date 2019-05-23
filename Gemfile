@@ -38,7 +38,6 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'thin'
 gem 'momentjs-rails'
-gem 'geocoder'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

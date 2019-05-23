@@ -3,9 +3,6 @@ class PlayDate < ApplicationRecord
   has_many :dog_play_dates
   has_many :dogs, through: :dog_play_dates
 
-  geocoded_by :location
-  after_validation :geocode
-
   accepts_nested_attributes_for :dog_play_dates, reject_if: :fields_blank?
 
   validates :name, presence: true

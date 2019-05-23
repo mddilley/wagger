@@ -76,7 +76,12 @@ function showForm(){
   $('form').submit(function(event) {
       event.preventDefault();
       event.stopImmediatePropagation();
+      const name = $("input#play_date_location").val();
+      const option = $("datalist#location_list").find("[value='" + name + "']")
+      $("input#play_date_latitude").val(option.data("latitude"));
+      $("input#play_date_longitude").val(option.data("longitude"));
       let values = $(this).serialize();
+      debugger
       let posting = $.post('/play_dates', values);
       posting.done(function(json) {
         if(json.errors){
@@ -95,9 +100,15 @@ function showForm(){
 function getPlaces(value){
   const token = "pk.eyJ1IjoibWRkaWxsZXkiLCJhIjoiY2p3MHZncXNzMGZmbDQzb2RmNzEwMjA4MiJ9.OQylqbWMWhsi5Evpe9SbGg";
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${value}.json?access_token=${token}&country=us&types=poi`
-  $.get(url, function(json){
-    console.log(json);
-  });
+  if(value !== ""){
+    $.get(url, function(json){
+      console.log(json);
+      const places = json.features;
+      console.log(places);
+      $("datalist#location_list").empty();
+      places.map(place => $("datalist#location_list").append(`<option value="${place.place_name}" data-latitude="${place.geometry.coordinates[0]}" data-longitude="${place.geometry.coordinates[1]}"></option>`))
+    });
+  }
 }
 
 $(function(){
@@ -106,7 +117,7 @@ $(function(){
       showForm();
       e.preventDefault();
     });
-    $("input#play_date_location").change(function(e){
+    $("input#play_date_location").keyup(function(e){
       console.log(e.target.value);
       getPlaces(e.target.value);
     })

@@ -64,6 +64,16 @@ function appendPlayDate(){
   let playDateId = $("div.playdate-show").data("id");
   $.get("/play_dates/" + playDateId, function(json){
     $("div.playdate-show").hide().html(compilePlayDate(json)).fadeIn();
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWRkaWxsZXkiLCJhIjoiY2p3MHZncXNzMGZmbDQzb2RmNzEwMjA4MiJ9.OQylqbWMWhsi5Evpe9SbGg';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [json.latitude, json.longitude],
+      zoom: 13
+    });
+    var marker = new mapboxgl.Marker()
+      .setLngLat([json.latitude, json.longitude])
+      .addTo(map);
   });
 }
 

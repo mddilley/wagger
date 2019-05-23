@@ -152,3 +152,10 @@
  .demo-parent {
    position: relative;
  }
+
+ /* map */
+
+ #map {
+   width: 500px;
+   height: 400px;
+ }

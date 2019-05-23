@@ -1,6 +1,6 @@
 class PlayDateSerializer < ActiveModel::Serializer
   has_many :dogs
-  attributes :id, :location, :date, :time, :dogLimit, :userId, :name, :playDates
+  attributes :id, :location, :date, :time, :dogLimit, :userId, :name, :playDates, :latitude, :longitude
 
   def dogLimit
     object.dog_limit

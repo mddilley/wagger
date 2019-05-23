@@ -2,7 +2,8 @@
 <%= f.text_field :name, class: "form-control-sm" %><br>
 
 <%= f.label :location %><br>
-<%= f.text_field :location, class: "form-control-sm" %><br>
+<%= f.text_field :location, list: "location_list", class: "form-control-sm" %>
+<datalist id="location_list" class="form-control-sm"><option value="Choose a location">Choose a location</option></datalist><br>
 
 <%= f.label :date %><br>
 <%= f.date_field :date, class: "form-control-sm" %><br>

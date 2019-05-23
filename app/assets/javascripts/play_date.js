@@ -94,7 +94,7 @@ function showForm(){
 
 function getPlaces(value){
   const token = "pk.eyJ1IjoibWRkaWxsZXkiLCJhIjoiY2p3MHZncXNzMGZmbDQzb2RmNzEwMjA4MiJ9.OQylqbWMWhsi5Evpe9SbGg";
-  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/Yard%20Bar.json?access_token=${token}&country=us&types=poi`
+  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${value}.json?access_token=${token}&country=us&types=poi`
   $.get(url, function(json){
     console.log(json);
   });
@@ -106,7 +106,7 @@ $(function(){
       showForm();
       e.preventDefault();
     });
-    $("input#play_date_location").keydown(function(e){
+    $("input#play_date_location").change(function(e){
       console.log(e.target.value);
       getPlaces(e.target.value);
     })

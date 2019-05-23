@@ -81,7 +81,6 @@ function showForm(){
       $("input#play_date_latitude").val(option.data("latitude"));
       $("input#play_date_longitude").val(option.data("longitude"));
       let values = $(this).serialize();
-      debugger
       let posting = $.post('/play_dates', values);
       posting.done(function(json) {
         if(json.errors){
